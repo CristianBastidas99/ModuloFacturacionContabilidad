@@ -1,8 +1,12 @@
 package co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona;
 
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.*;
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Factura;
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.OrdenDeVenta;
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Cliente {
 
@@ -12,6 +16,9 @@ public class Cliente {
     private String telefono;
     private String email;
     private String tipo_pago_preferido;
+    private List<Proyecto> proyectos = new ArrayList();
+    private List<Factura> facturas = new ArrayList();
+    private List<OrdenDeVenta> ordenDeVentas = new ArrayList();
 
     // Constructor
     public Cliente(int id_cliente, String nombre, String direccion, String telefono, String email, String tipo_pago_preferido) {
@@ -22,48 +29,5 @@ public class Cliente {
         this.email = email;
         this.tipo_pago_preferido = tipo_pago_preferido;
     }
-
-    // Métodos de acceso a datos
-    public void crearCliente() {
-        // Lógica para crear un nuevo cliente en la base de datos
-    }
-
-    public void actualizarCliente() {
-        // Lógica para actualizar los datos de un cliente en la base de datos
-    }
-
-    public void eliminarCliente() {
-        // Lógica para eliminar un cliente de la base de datos
-    }
-
-    public Cliente obtenerClientePorId(int id) {
-        // Lógica para obtener los datos de un cliente por su ID
-        return null;
-    }
-
-    public ArrayList<Cliente> obtenerClientesPorTipoPago(String tipo_pago) {
-        // Lógica para obtener una lista de clientes que prefieren un determinado tipo de pago
-        return null;
-    }
-
-    // Métodos para obtener relaciones
-    public ArrayList<Proyecto> obtenerProyectosPorCliente() {
-        // Lógica para obtener una lista de proyectos asociados a este cliente
-        return null;
-    }
-
-    public ArrayList<Factura> obtenerFacturasPorCliente() {
-        // Lógica para obtener una lista de facturas asociadas a este cliente
-        return null;
-    }
-
-    public ArrayList<OrdenDeVenta> obtenerOrdenesDeVentaPorCliente() {
-        // Lógica para obtener una lista de órdenes de venta realizadas por este cliente
-        return null;
-    }
-
-    // Restricciones
-    // El ID del cliente debe ser único
-    // El tipo de pago preferido debe ser una opción válida
 
 }

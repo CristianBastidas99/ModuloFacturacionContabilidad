@@ -1,5 +1,9 @@
 package co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario;
 
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.OrdenDeCompra;
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.OrdenDeVenta;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Servicio {
@@ -7,6 +11,9 @@ public class Servicio {
     private int id_servicio;
     private String descripcion;
     private double precio_unitario;
+    private List<DetalleFactura> detalleFacturas = new ArrayList();
+    private List<OrdenDeCompra> ordenDeCompras = new ArrayList();
+    private List<OrdenDeVenta> ordenDeVentas = new ArrayList();
 
     public Servicio(int id_servicio, String descripcion, double precio_unitario) {
         this.id_servicio = id_servicio;
