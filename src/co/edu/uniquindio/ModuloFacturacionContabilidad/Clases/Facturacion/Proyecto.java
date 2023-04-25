@@ -1,7 +1,9 @@
 package co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion;
 
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Inventario;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Producto;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Servicio;
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Cliente;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -16,8 +18,9 @@ public class Proyecto {
     private LocalDate fecha_fin_real;
     private String estado;
     private double presupuesto;
+    private Inventario inventario;
+    private List<Cliente> clientes = new ArrayList();
     private List<OrdenDeCompra> ordenDeCompras = new ArrayList();
-    private List<OrdenDeVenta> ordenDeVentas = new ArrayList();
 
     public Proyecto(int id_proyecto, String nombre, LocalDate fecha_inicio, LocalDate fecha_fin_estimada,
                     LocalDate fecha_fin_real, String estado, double presupuesto) {

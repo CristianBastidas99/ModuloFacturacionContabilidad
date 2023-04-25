@@ -1,7 +1,6 @@
 package co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario;
 
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.OrdenDeCompra;
-import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.OrdenDeVenta;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Proveedor;
 
 import java.util.ArrayList;
@@ -13,7 +12,6 @@ public class Producto {
     private String descripcion;
     private double precio_unitario;
     private int existencias;
-    private List<DetalleFactura> detalleFacturas = new ArrayList();
     private List<Proveedor> proveedores = new ArrayList();
     private List<OrdenDeCompra> ordenDeCompras = new ArrayList();
     private List<OrdenDeVenta> ordenDeVentas = new ArrayList();
@@ -65,12 +63,12 @@ public class Producto {
 
     public static Producto obtenerProductoPorId(int id_producto) {
         // Código para obtener el producto por su id
-        return producto;
+        return null;
     }
 
     public static List<Producto> obtenerProductosPorProveedor(Proveedor proveedor) {
         // Código para obtener los productos de un proveedor
-        return listaProductos;
+        return null;
     }
 
 
