@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Principal.Principal</OriginalElement>
+  <nodes>
+    <node x="1242.3887434554972" y="922.0">co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Servicio</node>
+    <node x="435.20320680628265" y="184.0">co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.LibroDiario</node>
+    <node x="226.80857329842934" y="503.0">co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.LibroMayor</node>
+    <node x="1297.0782068062827" y="1025.0">co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Proveedor</node>
+    <node x="459.45320680628265" y="360.0">co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.Transaccion</node>
+    <node x="376.6835732984293" y="503.0">co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.RegistroContable</node>
+    <node x="531.1835732984293" y="809.0">co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Cliente</node>
+    <node x="901.7032068062827" y="636.0">co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Factura</node>
+    <node x="984.8887434554973" y="922.0">co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.Impuesto</node>
+    <node x="556.6835732984293" y="503.0">co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.TipoTransaccion</node>
+    <node x="744.9980366492146" y="503.0">co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Pago</node>
+    <node x="417.70320680628265" y="267.0">co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.AsientoContable</node>
+    <node x="242.25" y="636.0">co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.Cuenta</node>
+    <node x="1126.8085732984293" y="1116.0">co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Producto</node>
+    <node x="537.9532068062827" y="91.0">co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto</node>
+    <node x="747.7032068062827" y="636.0">co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.MetodoPago</node>
+    <node x="91.93357329842934" y="809.0">co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.TipoCuenta</node>
+    <node x="410.49999999999994" y="636.0">co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.TipoRegistroContable</node>
+    <node x="1163.0782068062827" y="1025.0">co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Inventario</node>
+    <node x="958.7637434554973" y="809.0">co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.DetalleFactura</node>
+    <node x="681.5" y="0.0">co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Principal.Principal</node>
+    <node x="1117.7637434554972" y="809.0">co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.OrdenDeCompra</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Pago" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.MetodoPago" relationship="DEPENDENCY">
+      <point x="-20.75" y="14.5" />
+      <point x="765.7480366492146" y="574.0" />
+      <point x="781.2032068062827" y="574.0" />
+      <point x="-33.5" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Pago" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Factura" relationship="DEPENDENCY">
+      <point x="-20.75" y="14.5" />
+      <point x="765.7480366492146" y="564.0" />
+      <point x="868.0585732984293" y="564.0" />
+      <point x="868.0585732984293" y="584.0" />
+      <point x="925.7032068062827" y="584.0" />
+      <point x="-24.0" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.RegistroContable" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto" relationship="TO_ONE">
+      <point x="40.0" y="-14.5" />
+      <point x="496.6835732984293" y="471.0" />
+      <point x="774.7032068062827" y="471.0" />
+      <point x="774.7032068062827" y="451.0" />
+      <point x="1075.2032068062827" y="451.0" />
+      <point x="1075.2032068062827" y="162.0" />
+      <point x="1085.7032068062827" y="162.0" />
+      <point x="1085.7032068062827" y="142.0" />
+      <point x="617.4532068062827" y="142.0" />
+      <point x="26.5" y="14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Factura" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Pago" relationship="DEPENDENCY">
+      <point x="-24.0" y="-14.5" />
+      <point x="925.7032068062827" y="584.0" />
+      <point x="868.0585732984293" y="584.0" />
+      <point x="868.0585732984293" y="564.0" />
+      <point x="765.7480366492146" y="564.0" />
+      <point x="-20.75" y="14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.OrdenDeCompra" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Servicio" relationship="TO_MANY">
+      <point x="39.75" y="14.5" />
+      <point x="1237.0137434554972" y="860.0" />
+      <point x="1389.3887434554972" y="860.0" />
+      <point x="1389.3887434554972" y="900.0" />
+      <point x="1316.6387434554972" y="900.0" />
+      <point x="24.75" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.DetalleFactura" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.Impuesto" relationship="DEPENDENCY">
+      <point x="-34.75" y="14.5" />
+      <point x="993.5137434554973" y="870.0" />
+      <point x="1012.6387434554973" y="870.0" />
+      <point x="-27.75" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.LibroMayor" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.Cuenta" relationship="DEPENDENCY">
+      <point x="-30.75" y="14.5" />
+      <point x="257.55857329842934" y="554.0" />
+      <point x="232.57820680628265" y="554.0" />
+      <point x="232.57820680628265" y="604.0" />
+      <point x="265.75" y="604.0" />
+      <point x="-23.5" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Factura" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.OrdenDeCompra" relationship="TO_ONE">
+      <point x="24.0" y="14.5" />
+      <point x="973.7032068062827" y="687.0" />
+      <point x="982.9980366492146" y="687.0" />
+      <point x="982.9980366492146" y="697.0" />
+      <point x="1235.5585732984293" y="697.0" />
+      <point x="1235.5585732984293" y="767.0" />
+      <point x="1237.0137434554972" y="767.0" />
+      <point x="39.75" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.RegistroContable" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.TipoRegistroContable" relationship="DEPENDENCY">
+      <point x="-40.0" y="14.5" />
+      <point x="416.6835732984293" y="554.0" />
+      <point x="424.2637434554973" y="554.0" />
+      <point x="424.2637434554973" y="584.0" />
+      <point x="457.49999999999994" y="584.0" />
+      <point x="-47.0" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.LibroMayor" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.Cuenta" relationship="TO_MANY">
+      <point x="30.75" y="14.5" />
+      <point x="319.05857329842934" y="564.0" />
+      <point x="294.75" y="564.0" />
+      <point x="294.75" y="614.0" />
+      <point x="312.75" y="614.0" />
+      <point x="23.5" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.OrdenDeCompra" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Servicio" relationship="DEPENDENCY">
+      <point x="-39.75" y="14.5" />
+      <point x="1157.5137434554972" y="860.0" />
+      <point x="1165.6230366492146" y="860.0" />
+      <point x="1165.6230366492146" y="870.0" />
+      <point x="1075.3282068062827" y="870.0" />
+      <point x="1075.3282068062827" y="880.0" />
+      <point x="1267.1387434554972" y="880.0" />
+      <point x="-24.75" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.OrdenDeCompra" relationship="TO_MANY">
+      <point x="26.5" y="14.5" />
+      <point x="617.4532068062827" y="142.0" />
+      <point x="1085.7032068062827" y="142.0" />
+      <point x="1085.7032068062827" y="162.0" />
+      <point x="1235.5585732984293" y="162.0" />
+      <point x="1235.5585732984293" y="767.0" />
+      <point x="1237.0137434554972" y="767.0" />
+      <point x="39.75" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.Transaccion" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.TipoTransaccion" relationship="TO_ONE">
+      <point x="31.0" y="14.5" />
+      <point x="552.4532068062827" y="411.0" />
+      <point x="769.4532068062827" y="411.0" />
+      <point x="769.4532068062827" y="481.0" />
+      <point x="670.6835732984293" y="481.0" />
+      <point x="38.0" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Factura" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.DetalleFactura" relationship="TO_MANY">
+      <point x="24.0" y="14.5" />
+      <point x="973.7032068062827" y="687.0" />
+      <point x="982.9980366492146" y="687.0" />
+      <point x="982.9980366492146" y="727.0" />
+      <point x="1063.0137434554972" y="727.0" />
+      <point x="34.75" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.Cuenta" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.TipoCuenta" relationship="DEPENDENCY">
+      <point x="-23.5" y="14.5" />
+      <point x="265.75" y="687.0" />
+      <point x="274.25" y="687.0" />
+      <point x="274.25" y="697.0" />
+      <point x="122.43357329842934" y="697.0" />
+      <point x="-30.5" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.OrdenDeCompra" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Producto" relationship="TO_MANY">
+      <point x="39.75" y="14.5" />
+      <point x="1237.0137434554972" y="860.0" />
+      <point x="1389.3887434554972" y="860.0" />
+      <point x="1389.3887434554972" y="900.0" />
+      <point x="1423.5782068062827" y="900.0" />
+      <point x="1423.5782068062827" y="1085.0" />
+      <point x="1279.0137434554972" y="1085.0" />
+      <point x="1279.0137434554972" y="1095.0" />
+      <point x="1208.5585732984293" y="1095.0" />
+      <point x="27.25" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Producto" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Proveedor" relationship="TO_ONE">
+      <point x="27.25" y="-14.5" />
+      <point x="1208.5585732984293" y="1095.0" />
+      <point x="1279.0137434554972" y="1095.0" />
+      <point x="1279.0137434554972" y="1085.0" />
+      <point x="1384.0782068062827" y="1085.0" />
+      <point x="29.0" y="14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.OrdenDeCompra" relationship="DEPENDENCY">
+      <point x="-26.5" y="14.5" />
+      <point x="564.4532068062827" y="142.0" />
+      <point x="118.51374345549732" y="142.0" />
+      <point x="118.51374345549732" y="152.0" />
+      <point x="1064.2032068062827" y="152.0" />
+      <point x="1064.2032068062827" y="747.0" />
+      <point x="1048.9532068062827" y="747.0" />
+      <point x="1048.9532068062827" y="787.0" />
+      <point x="1157.5137434554972" y="787.0" />
+      <point x="-39.75" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.OrdenDeCompra" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto" relationship="DEPENDENCY">
+      <point x="-39.75" y="-14.5" />
+      <point x="1157.5137434554972" y="787.0" />
+      <point x="1048.9532068062827" y="787.0" />
+      <point x="1048.9532068062827" y="747.0" />
+      <point x="1064.2032068062827" y="747.0" />
+      <point x="1064.2032068062827" y="152.0" />
+      <point x="118.51374345549732" y="152.0" />
+      <point x="118.51374345549732" y="142.0" />
+      <point x="564.4532068062827" y="142.0" />
+      <point x="-26.5" y="14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Servicio" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Proveedor" relationship="TO_ONE">
+      <point x="24.75" y="14.5" />
+      <point x="1316.6387434554972" y="983.0" />
+      <point x="1346.7637434554972" y="983.0" />
+      <point x="1346.7637434554972" y="1003.0" />
+      <point x="1384.0782068062827" y="1003.0" />
+      <point x="29.0" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Inventario" relationship="DEPENDENCY">
+      <point x="-26.5" y="14.5" />
+      <point x="564.4532068062827" y="142.0" />
+      <point x="118.51374345549732" y="142.0" />
+      <point x="118.51374345549732" y="152.0" />
+      <point x="11.0" y="152.0" />
+      <point x="11.0" y="973.0" />
+      <point x="1191.5782068062827" y="973.0" />
+      <point x="-28.5" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.Cuenta" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Cliente" relationship="TO_ONE">
+      <point x="23.5" y="14.5" />
+      <point x="312.75" y="687.0" />
+      <point x="668.136780104712" y="687.0" />
+      <point x="668.136780104712" y="717.0" />
+      <point x="1064.7032068062827" y="717.0" />
+      <point x="1064.7032068062827" y="777.0" />
+      <point x="600.9335732984293" y="777.0" />
+      <point x="23.25" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.OrdenDeCompra" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Proveedor" relationship="TO_ONE">
+      <point x="39.75" y="14.5" />
+      <point x="1237.0137434554972" y="860.0" />
+      <point x="1389.3887434554972" y="860.0" />
+      <point x="1389.6387434554972" y="983.0" />
+      <point x="1346.7637434554972" y="983.0" />
+      <point x="1346.7637434554972" y="1003.0" />
+      <point x="1384.0782068062827" y="1003.0" />
+      <point x="29.0" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Proveedor" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Producto" relationship="DEPENDENCY">
+      <point x="-29.0" y="14.5" />
+      <point x="1326.0782068062827" y="1075.0" />
+      <point x="1108.5585732984293" y="1075.0" />
+      <point x="1108.5585732984293" y="1085.0" />
+      <point x="1154.0585732984293" y="1085.0" />
+      <point x="-27.25" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Producto" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Proveedor" relationship="DEPENDENCY">
+      <point x="-27.25" y="-14.5" />
+      <point x="1154.0585732984293" y="1085.0" />
+      <point x="1108.5585732984293" y="1085.0" />
+      <point x="1108.5585732984293" y="1075.0" />
+      <point x="1326.0782068062827" y="1075.0" />
+      <point x="-29.0" y="14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Factura" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Cliente" relationship="DEPENDENCY">
+      <point x="-24.0" y="14.5" />
+      <point x="925.7032068062827" y="697.0" />
+      <point x="658.136780104712" y="697.0" />
+      <point x="658.136780104712" y="757.0" />
+      <point x="123.76374345549732" y="757.0" />
+      <point x="123.76374345549732" y="777.0" />
+      <point x="554.4335732984293" y="777.0" />
+      <point x="-23.25" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Pago" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.Transaccion" relationship="TO_ONE">
+      <point x="20.75" y="-14.5" />
+      <point x="807.2480366492146" y="481.0" />
+      <point x="769.4532068062827" y="481.0" />
+      <point x="769.4532068062827" y="411.0" />
+      <point x="552.4532068062827" y="411.0" />
+      <point x="31.0" y="14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.Transaccion" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Pago" relationship="TO_ONE">
+      <point x="31.0" y="14.5" />
+      <point x="552.4532068062827" y="411.0" />
+      <point x="769.4532068062827" y="411.0" />
+      <point x="769.4532068062827" y="481.0" />
+      <point x="807.2480366492146" y="481.0" />
+      <point x="20.75" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Inventario" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Producto" relationship="TO_MANY">
+      <point x="28.5" y="14.5" />
+      <point x="1248.5782068062827" y="1085.0" />
+      <point x="1279.0137434554972" y="1085.0" />
+      <point x="1279.0137434554972" y="1095.0" />
+      <point x="1208.5585732984293" y="1095.0" />
+      <point x="27.25" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.RegistroContable" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.TipoRegistroContable" relationship="TO_ONE">
+      <point x="40.0" y="14.5" />
+      <point x="496.6835732984293" y="554.0" />
+      <point x="434.2637434554973" y="554.0" />
+      <point x="434.2637434554973" y="574.0" />
+      <point x="551.5" y="574.0" />
+      <point x="47.00000000000006" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Principal.Principal" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Cliente" relationship="DEPENDENCY">
+      <point x="0.0" y="-14.5" />
+      <point x="733.0" y="-17.5" />
+      <point x="-19.0" y="-17.5" />
+      <point x="-19.0" y="944.5" />
+      <point x="592.6835732984293" y="944.5" />
+      <point x="15.0" y="14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.RegistroContable" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.Transaccion" relationship="TO_ONE">
+      <point x="40.0" y="-14.5" />
+      <point x="496.6835732984293" y="471.0" />
+      <point x="774.7032068062827" y="471.0" />
+      <point x="774.7032068062827" y="421.0" />
+      <point x="769.4532068062827" y="421.0" />
+      <point x="769.4532068062827" y="411.0" />
+      <point x="552.4532068062827" y="411.0" />
+      <point x="31.0" y="14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.Transaccion" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.RegistroContable" relationship="TO_ONE">
+      <point x="31.0" y="14.5" />
+      <point x="552.4532068062827" y="411.0" />
+      <point x="769.4532068062827" y="411.0" />
+      <point x="769.4532068062827" y="421.0" />
+      <point x="774.7032068062827" y="421.0" />
+      <point x="774.7032068062827" y="471.0" />
+      <point x="496.6835732984293" y="471.0" />
+      <point x="40.0" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.Cuenta" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.TipoCuenta" relationship="TO_ONE">
+      <point x="23.5" y="14.5" />
+      <point x="312.75" y="687.0" />
+      <point x="668.136780104712" y="687.0" />
+      <point x="668.136780104712" y="767.0" />
+      <point x="183.43357329842934" y="767.0" />
+      <point x="30.5" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.AsientoContable" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.Cuenta" relationship="DEPENDENCY">
+      <point x="-38.75" y="14.5" />
+      <point x="456.45320680628265" y="318.0" />
+      <point x="164.05857329842934" y="318.0" />
+      <point x="163.80857329842934" y="554.0" />
+      <point x="232.57820680628265" y="554.0" />
+      <point x="232.57820680628265" y="604.0" />
+      <point x="265.75" y="604.0" />
+      <point x="-23.5" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.AsientoContable" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.Transaccion" relationship="DEPENDENCY">
+      <point x="-38.75" y="14.5" />
+      <point x="456.45320680628265" y="318.0" />
+      <point x="164.05857329842934" y="318.0" />
+      <point x="164.05857329842934" y="328.0" />
+      <point x="490.45320680628265" y="328.0" />
+      <point x="-31.0" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Cliente" relationship="TO_MANY">
+      <point x="26.5" y="14.5" />
+      <point x="617.4532068062827" y="142.0" />
+      <point x="1085.7032068062827" y="142.0" />
+      <point x="1085.7032068062827" y="757.0" />
+      <point x="1064.7032068062827" y="757.0" />
+      <point x="1064.7032068062827" y="777.0" />
+      <point x="600.9335732984293" y="777.0" />
+      <point x="23.25" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Cliente" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto" relationship="TO_MANY">
+      <point x="23.25" y="-14.5" />
+      <point x="600.9335732984293" y="777.0" />
+      <point x="1064.7032068062827" y="777.0" />
+      <point x="1064.7032068062827" y="757.0" />
+      <point x="1085.7032068062827" y="757.0" />
+      <point x="1085.7032068062827" y="142.0" />
+      <point x="617.4532068062827" y="142.0" />
+      <point x="26.5" y="14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Factura" relationship="TO_MANY">
+      <point x="26.5" y="14.5" />
+      <point x="617.4532068062827" y="142.0" />
+      <point x="1085.7032068062827" y="142.0" />
+      <point x="1085.7032068062827" y="574.0" />
+      <point x="959.9532068062827" y="574.0" />
+      <point x="959.9532068062827" y="584.0" />
+      <point x="973.7032068062827" y="584.0" />
+      <point x="24.0" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Factura" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto" relationship="TO_ONE">
+      <point x="24.0" y="-14.5" />
+      <point x="973.7032068062827" y="584.0" />
+      <point x="959.9532068062827" y="584.0" />
+      <point x="959.9532068062827" y="574.0" />
+      <point x="1085.7032068062827" y="574.0" />
+      <point x="1085.7032068062827" y="142.0" />
+      <point x="617.4532068062827" y="142.0" />
+      <point x="26.5" y="14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.RegistroContable" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.Cuenta" relationship="TO_ONE">
+      <point x="40.0" y="14.5" />
+      <point x="496.6835732984293" y="554.0" />
+      <point x="434.2637434554973" y="554.0" />
+      <point x="434.2637434554973" y="604.0" />
+      <point x="294.75" y="604.0" />
+      <point x="294.75" y="614.0" />
+      <point x="312.75" y="614.0" />
+      <point x="23.5" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.Transaccion" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.Cuenta" relationship="TO_ONE">
+      <point x="31.0" y="14.5" />
+      <point x="552.4532068062827" y="411.0" />
+      <point x="769.4532068062827" y="411.0" />
+      <point x="769.4532068062827" y="481.0" />
+      <point x="719.1835732984293" y="481.0" />
+      <point x="719.1835732984293" y="564.0" />
+      <point x="294.75" y="564.0" />
+      <point x="294.75" y="614.0" />
+      <point x="312.75" y="614.0" />
+      <point x="23.5" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Principal.Principal" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto" relationship="DEPENDENCY">
+      <point x="-13.816426701570663" y="14.5" />
+      <point x="719.1835732984293" y="105.5" />
+      <point x="53.0" y="0.0" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.LibroMayor" relationship="TO_MANY">
+      <point x="26.5" y="14.5" />
+      <point x="617.4532068062827" y="142.0" />
+      <point x="1085.7032068062827" y="142.0" />
+      <point x="1085.7032068062827" y="162.0" />
+      <point x="1075.2032068062827" y="162.0" />
+      <point x="1075.2032068062827" y="441.0" />
+      <point x="319.05857329842934" y="441.0" />
+      <point x="30.75" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.LibroDiario" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.AsientoContable" relationship="DEPENDENCY">
+      <point x="30.0" y="14.5" />
+      <point x="525.2032068062827" y="240.0" />
+      <point x="533.9532068062827" y="240.0" />
+      <point x="38.75" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Principal.Principal" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Proveedor" relationship="TO_MANY">
+      <point x="15.0" y="-14.5" />
+      <point x="748.0" y="-32.5" />
+      <point x="1464.5782068062827" y="-32.5" />
+      <point x="1464.5782068062827" y="1123.5" />
+      <point x="1355.0782068062827" y="1123.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Factura" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.OrdenDeCompra" relationship="DEPENDENCY">
+      <point x="-24.0" y="14.5" />
+      <point x="925.7032068062827" y="697.0" />
+      <point x="658.136780104712" y="697.0" />
+      <point x="658.136780104712" y="737.0" />
+      <point x="1048.9532068062827" y="737.0" />
+      <point x="1048.9532068062827" y="787.0" />
+      <point x="1157.5137434554972" y="787.0" />
+      <point x="-39.75" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Pago" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.MetodoPago" relationship="TO_ONE">
+      <point x="20.75" y="14.5" />
+      <point x="807.2480366492146" y="554.0" />
+      <point x="954.9532068062827" y="554.0" />
+      <point x="954.9532068062827" y="574.0" />
+      <point x="848.2032068062827" y="574.0" />
+      <point x="33.5" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Principal.Principal" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto" relationship="TO_MANY">
+      <point x="-31.816426701570663" y="14.5" />
+      <point x="701.1835732984293" y="61.5" />
+      <point x="590.9532068062827" y="61.5" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.LibroDiario" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.AsientoContable" relationship="TO_MANY">
+      <point x="-30.0" y="14.5" />
+      <point x="465.20320680628265" y="240.0" />
+      <point x="456.45320680628265" y="240.0" />
+      <point x="-38.75" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.Cuenta" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Cliente" relationship="DEPENDENCY">
+      <point x="-23.5" y="14.5" />
+      <point x="265.75" y="687.0" />
+      <point x="274.25" y="687.0" />
+      <point x="274.25" y="707.0" />
+      <point x="123.76374345549732" y="707.0" />
+      <point x="123.76374345549732" y="777.0" />
+      <point x="554.4335732984293" y="777.0" />
+      <point x="-23.25" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.DetalleFactura" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.Impuesto" relationship="TO_ONE">
+      <point x="34.75" y="14.5" />
+      <point x="1063.0137434554972" y="870.0" />
+      <point x="1068.1387434554972" y="870.0" />
+      <point x="27.75" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Principal.Principal" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Proveedor" relationship="DEPENDENCY">
+      <point x="51.5" y="0.0" />
+      <point x="1449.5782068062827" y="14.5" />
+      <point x="1449.5782068062827" y="1039.5" />
+      <point x="58.0" y="0.0" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.OrdenDeCompra" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto" relationship="TO_ONE">
+      <point x="39.75" y="-14.5" />
+      <point x="1237.0137434554972" y="767.0" />
+      <point x="1235.5585732984293" y="767.0" />
+      <point x="1235.5585732984293" y="162.0" />
+      <point x="1085.7032068062827" y="162.0" />
+      <point x="1085.7032068062827" y="142.0" />
+      <point x="617.4532068062827" y="142.0" />
+      <point x="26.5" y="14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.Transaccion" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Pago" relationship="DEPENDENCY">
+      <point x="-31.0" y="14.5" />
+      <point x="490.45320680628265" y="411.0" />
+      <point x="345.82820680628265" y="411.0" />
+      <point x="345.82820680628265" y="461.0" />
+      <point x="765.7480366492146" y="461.0" />
+      <point x="-20.75" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Pago" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.Transaccion" relationship="DEPENDENCY">
+      <point x="-20.75" y="-14.5" />
+      <point x="765.7480366492146" y="461.0" />
+      <point x="345.82820680628265" y="461.0" />
+      <point x="345.82820680628265" y="411.0" />
+      <point x="490.45320680628265" y="411.0" />
+      <point x="-31.0" y="14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Servicio" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Proveedor" relationship="DEPENDENCY">
+      <point x="-24.75" y="14.5" />
+      <point x="1267.1387434554972" y="973.0" />
+      <point x="1336.2637434554972" y="973.0" />
+      <point x="1336.2637434554972" y="1003.0" />
+      <point x="1326.0782068062827" y="1003.0" />
+      <point x="-29.0" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.RegistroContable" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto" relationship="DEPENDENCY">
+      <point x="-40.0" y="-14.5" />
+      <point x="416.6835732984293" y="451.0" />
+      <point x="205.80857329842934" y="451.0" />
+      <point x="205.80857329842934" y="421.0" />
+      <point x="123.76374345549732" y="421.0" />
+      <point x="123.76374345549732" y="152.0" />
+      <point x="118.51374345549732" y="152.0" />
+      <point x="118.51374345549732" y="142.0" />
+      <point x="564.4532068062827" y="142.0" />
+      <point x="-26.5" y="14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.LibroDiario" relationship="DEPENDENCY">
+      <point x="-26.5" y="14.5" />
+      <point x="564.4532068062827" y="142.0" />
+      <point x="118.51374345549732" y="142.0" />
+      <point x="118.51374345549732" y="152.0" />
+      <point x="465.20320680628265" y="152.0" />
+      <point x="-30.0" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.OrdenDeCompra" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Proveedor" relationship="DEPENDENCY">
+      <point x="-39.75" y="14.5" />
+      <point x="1157.5137434554972" y="860.0" />
+      <point x="1165.6230366492146" y="860.0" />
+      <point x="1165.6230366492146" y="890.0" />
+      <point x="1378.6387434554972" y="890.0" />
+      <point x="1378.6387434554972" y="973.0" />
+      <point x="1336.2637434554972" y="973.0" />
+      <point x="1336.2637434554972" y="1003.0" />
+      <point x="1326.0782068062827" y="1003.0" />
+      <point x="-29.0" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Proveedor" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Producto" relationship="TO_MANY">
+      <point x="29.0" y="14.5" />
+      <point x="1384.0782068062827" y="1085.0" />
+      <point x="1279.0137434554972" y="1085.0" />
+      <point x="1279.0137434554972" y="1095.0" />
+      <point x="1208.5585732984293" y="1095.0" />
+      <point x="27.25" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.Transaccion" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.TipoTransaccion" relationship="DEPENDENCY">
+      <point x="-31.0" y="14.5" />
+      <point x="490.45320680628265" y="411.0" />
+      <point x="345.82820680628265" y="411.0" />
+      <point x="345.82820680628265" y="461.0" />
+      <point x="594.6835732984293" y="461.0" />
+      <point x="-38.0" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Inventario" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Producto" relationship="DEPENDENCY">
+      <point x="-28.5" y="14.5" />
+      <point x="1191.5782068062827" y="1075.0" />
+      <point x="1108.5585732984293" y="1075.0" />
+      <point x="1108.5585732984293" y="1085.0" />
+      <point x="1154.0585732984293" y="1085.0" />
+      <point x="-27.25" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.LibroDiario" relationship="TO_MANY">
+      <point x="26.5" y="14.5" />
+      <point x="617.4532068062827" y="142.0" />
+      <point x="1085.7032068062827" y="142.0" />
+      <point x="1085.7032068062827" y="162.0" />
+      <point x="525.2032068062827" y="162.0" />
+      <point x="30.0" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Factura" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Cliente" relationship="TO_ONE">
+      <point x="24.0" y="14.5" />
+      <point x="973.7032068062827" y="687.0" />
+      <point x="982.9980366492146" y="687.0" />
+      <point x="982.9980366492146" y="707.0" />
+      <point x="1064.7032068062827" y="707.0" />
+      <point x="1064.7032068062827" y="777.0" />
+      <point x="600.9335732984293" y="777.0" />
+      <point x="23.25" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Factura" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.DetalleFactura" relationship="DEPENDENCY">
+      <point x="-24.0" y="14.5" />
+      <point x="925.7032068062827" y="697.0" />
+      <point x="658.136780104712" y="697.0" />
+      <point x="658.136780104712" y="747.0" />
+      <point x="993.5137434554973" y="747.0" />
+      <point x="-34.75" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.DetalleFactura" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Servicio" relationship="DEPENDENCY">
+      <point x="-34.75" y="14.5" />
+      <point x="993.5137434554973" y="860.0" />
+      <point x="1075.3282068062827" y="860.0" />
+      <point x="1075.3282068062827" y="880.0" />
+      <point x="1267.1387434554972" y="880.0" />
+      <point x="-24.75" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.OrdenDeCompra" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Producto" relationship="DEPENDENCY">
+      <point x="-39.75" y="14.5" />
+      <point x="1157.5137434554972" y="860.0" />
+      <point x="1165.6230366492146" y="860.0" />
+      <point x="1165.6230366492146" y="890.0" />
+      <point x="1152.5782068062827" y="890.0" />
+      <point x="1152.5782068062827" y="1075.0" />
+      <point x="1108.5585732984293" y="1075.0" />
+      <point x="1108.5585732984293" y="1085.0" />
+      <point x="1154.0585732984293" y="1085.0" />
+      <point x="-27.25" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.DetalleFactura" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Producto" relationship="DEPENDENCY">
+      <point x="-34.75" y="14.5" />
+      <point x="993.5137434554973" y="870.0" />
+      <point x="912.3085732984293" y="870.0" />
+      <point x="912.3085732984293" y="1075.0" />
+      <point x="1108.5585732984293" y="1075.0" />
+      <point x="1108.5585732984293" y="1085.0" />
+      <point x="1154.0585732984293" y="1085.0" />
+      <point x="-27.25" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Factura" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto" relationship="DEPENDENCY">
+      <point x="-24.0" y="-14.5" />
+      <point x="925.7032068062827" y="584.0" />
+      <point x="868.0585732984293" y="584.0" />
+      <point x="868.0585732984292" y="152.0" />
+      <point x="118.51374345549732" y="152.0" />
+      <point x="118.51374345549732" y="142.0" />
+      <point x="564.4532068062827" y="142.0" />
+      <point x="-26.5" y="14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Factura" relationship="DEPENDENCY">
+      <point x="-26.5" y="14.5" />
+      <point x="564.4532068062827" y="142.0" />
+      <point x="118.51374345549732" y="142.0" />
+      <point x="118.51374345549732" y="152.0" />
+      <point x="868.0585732984292" y="152.0" />
+      <point x="868.0585732984293" y="584.0" />
+      <point x="925.7032068062827" y="584.0" />
+      <point x="-24.0" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Principal.Principal" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Cliente" relationship="TO_MANY">
+      <point x="-51.5" y="0.0" />
+      <point x="-4.0" y="14.5" />
+      <point x="-4.0" y="929.5" />
+      <point x="577.6835732984293" y="929.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Factura" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Pago" relationship="TO_ONE">
+      <point x="24.0" y="-14.5" />
+      <point x="973.7032068062827" y="584.0" />
+      <point x="959.9532068062827" y="584.0" />
+      <point x="959.9532068062827" y="564.0" />
+      <point x="954.9532068062827" y="564.0" />
+      <point x="954.9532068062827" y="554.0" />
+      <point x="807.2480366492146" y="554.0" />
+      <point x="20.75" y="14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Pago" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Factura" relationship="TO_ONE">
+      <point x="20.75" y="14.5" />
+      <point x="807.2480366492146" y="554.0" />
+      <point x="954.9532068062827" y="554.0" />
+      <point x="954.9532068062827" y="564.0" />
+      <point x="959.9532068062827" y="564.0" />
+      <point x="959.9532068062827" y="584.0" />
+      <point x="973.7032068062827" y="584.0" />
+      <point x="24.0" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Cliente" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto" relationship="DEPENDENCY">
+      <point x="-23.25" y="-14.5" />
+      <point x="554.4335732984293" y="777.0" />
+      <point x="123.76374345549732" y="777.0" />
+      <point x="123.76374345549732" y="152.0" />
+      <point x="118.51374345549732" y="152.0" />
+      <point x="118.51374345549732" y="142.0" />
+      <point x="564.4532068062827" y="142.0" />
+      <point x="-26.5" y="14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Cliente" relationship="DEPENDENCY">
+      <point x="-26.5" y="14.5" />
+      <point x="564.4532068062827" y="142.0" />
+      <point x="118.51374345549732" y="142.0" />
+      <point x="118.51374345549732" y="152.0" />
+      <point x="123.76374345549732" y="152.0" />
+      <point x="123.76374345549732" y="777.0" />
+      <point x="554.4335732984293" y="777.0" />
+      <point x="-23.25" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Inventario" relationship="TO_ONE">
+      <point x="26.5" y="14.5" />
+      <point x="617.4532068062827" y="142.0" />
+      <point x="1085.7032068062827" y="142.0" />
+      <point x="1085.7032068062827" y="162.0" />
+      <point x="1434.5782068062827" y="162.0" />
+      <point x="1434.5782068062827" y="993.0" />
+      <point x="1248.5782068062827" y="993.0" />
+      <point x="28.5" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.AsientoContable" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.Transaccion" relationship="TO_ONE">
+      <point x="38.75" y="14.5" />
+      <point x="533.9532068062827" y="318.0" />
+      <point x="500.70320680628265" y="318.0" />
+      <point x="500.70320680628265" y="338.0" />
+      <point x="552.4532068062827" y="338.0" />
+      <point x="31.0" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.RegistroContable" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.Transaccion" relationship="DEPENDENCY">
+      <point x="-40.0" y="-14.5" />
+      <point x="416.6835732984293" y="451.0" />
+      <point x="205.80857329842934" y="451.0" />
+      <point x="205.80857329842934" y="431.0" />
+      <point x="345.82820680628265" y="431.0" />
+      <point x="345.82820680628265" y="411.0" />
+      <point x="490.45320680628265" y="411.0" />
+      <point x="-31.0" y="14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.Transaccion" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.RegistroContable" relationship="DEPENDENCY">
+      <point x="-31.0" y="14.5" />
+      <point x="490.45320680628265" y="411.0" />
+      <point x="345.82820680628265" y="411.0" />
+      <point x="345.82820680628265" y="431.0" />
+      <point x="205.80857329842934" y="431.0" />
+      <point x="205.80857329842934" y="451.0" />
+      <point x="416.6835732984293" y="451.0" />
+      <point x="-40.0" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.Transaccion" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.Cuenta" relationship="DEPENDENCY">
+      <point x="-31.0" y="14.5" />
+      <point x="490.45320680628265" y="411.0" />
+      <point x="345.82820680628265" y="411.0" />
+      <point x="345.82820680628265" y="461.0" />
+      <point x="216.30857329842934" y="461.0" />
+      <point x="216.30857329842934" y="554.0" />
+      <point x="232.57820680628265" y="554.0" />
+      <point x="232.57820680628265" y="604.0" />
+      <point x="265.75" y="604.0" />
+      <point x="-23.5" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.AsientoContable" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.Cuenta" relationship="TO_ONE">
+      <point x="38.75" y="14.5" />
+      <point x="533.9532068062827" y="318.0" />
+      <point x="500.70320680628265" y="318.0" />
+      <point x="500.70320680628265" y="338.0" />
+      <point x="174.80857329842934" y="338.0" />
+      <point x="174.80857329842934" y="564.0" />
+      <point x="294.75" y="564.0" />
+      <point x="294.75" y="614.0" />
+      <point x="312.75" y="614.0" />
+      <point x="23.5" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.LibroMayor" relationship="DEPENDENCY">
+      <point x="-26.5" y="14.5" />
+      <point x="564.4532068062827" y="142.0" />
+      <point x="118.51374345549732" y="142.0" />
+      <point x="118.51374345549732" y="152.0" />
+      <point x="123.76374345549732" y="152.0" />
+      <point x="123.76374345549732" y="411.0" />
+      <point x="257.55857329842934" y="411.0" />
+      <point x="-30.75" y="-14.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.RegistroContable" target="co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.Cuenta" relationship="DEPENDENCY">
+      <point x="-40.0" y="14.5" />
+      <point x="416.6835732984293" y="554.0" />
+      <point x="424.2637434554973" y="554.0" />
+      <point x="424.2637434554973" y="594.0" />
+      <point x="232.57820680628265" y="594.0" />
+      <point x="232.57820680628265" y="604.0" />
+      <point x="265.75" y="604.0" />
+      <point x="-23.5" y="-14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.5909849749582637" showDependencies="true" x="723.0" y="556.0" />
+  <SelectedNodes>
+    <node>co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Principal.Principal</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>public</VISIBILITY>
+</Diagram>
+

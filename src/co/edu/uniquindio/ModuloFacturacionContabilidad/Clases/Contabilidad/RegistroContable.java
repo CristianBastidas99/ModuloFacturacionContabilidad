@@ -24,4 +24,60 @@ public class RegistroContable {
         this.cuenta = cuenta;
         this.transaccion = transaccion;
     }
+
+    public int getId_registro_contable() {
+        return id_registro_contable;
+    }
+
+    public void setId_registro_contable(int id_registro_contable) {
+        this.id_registro_contable = id_registro_contable;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
+    }
+
+    public TipoRegistroContable getTipoRegistroContable() {
+        return tipoRegistroContable;
+    }
+
+    public void setTipoRegistroContable(TipoRegistroContable tipoRegistroContable) {
+        this.tipoRegistroContable = tipoRegistroContable;
+    }
+
+    public Proyecto getProyecto() {
+        return proyecto;
+    }
+
+    public void setProyecto(Proyecto proyecto) {
+        this.proyecto = proyecto;
+    }
+
+    public Cuenta getCuenta() {
+        return cuenta;
+    }
+
+    public void setCuenta(Cuenta cuenta) {
+        this.cuenta = cuenta;
+    }
+
+    public Transaccion getTransaccion() {
+        return transaccion;
+    }
+
+    public void setTransaccion(Transaccion transaccion) {
+        this.transaccion = transaccion;
+    }
 }
