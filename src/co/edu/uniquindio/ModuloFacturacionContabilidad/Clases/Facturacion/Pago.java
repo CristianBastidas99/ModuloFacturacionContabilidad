@@ -3,6 +3,7 @@ package co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.Transaccion;
 
 import java.time.LocalDate;
+import java.util.Random;
 
 public class Pago {
 
@@ -15,15 +16,33 @@ public class Pago {
     private Factura factura;
     private Transaccion transaccion;
 
-    public Pago(int id_pago, LocalDate fecha, double monto, String estado, boolean autorizacion, MetodoPago metodoPago, Factura factura, Transaccion transaccion) {
+    public Pago(int id_pago, LocalDate fecha, double monto, String estado, MetodoPago metodoPago, Factura factura, Transaccion transaccion) {
         this.id_pago = id_pago;
         this.fecha = fecha;
         this.monto = monto;
         this.estado = estado;
-        this.autorizacion = autorizacion;
+        this.autorizacion = aprobarTransaccion();
         this.metodoPago = metodoPago;
         this.factura = factura;
         this.transaccion = transaccion;
+    }
+
+    /**
+     * Este método genera una probabilidad aleatoria de aprobación de un Pago,
+     * con un 70% de probabilidad de aprobación y un 30% de probabilidad de rechazo.
+     *
+     * @return true si el pago es aprobado, false si el pago es rechazado
+     */
+    public static boolean aprobarTransaccion() {
+        Random random = new Random();
+        double randomValue = random.nextDouble();
+        double umbralAprobacion = 0.7;
+
+        if (randomValue < umbralAprobacion) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public int getId_pago() {

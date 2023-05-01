@@ -13,14 +13,16 @@ public class Cliente {
     private String direccion;
     private String telefono;
     private String email;
+    private String password;
     private List<Proyecto> proyectos = new ArrayList();
 
-    public Cliente(int id_cliente, String nombre, String direccion, String telefono, String email) {
+    public Cliente(int id_cliente, String nombre, String direccion, String telefono, String email, String password) {
         this.id_cliente = id_cliente;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.email = email;
+        this.password = password;
     }
 
     public int getId_cliente() {
