@@ -5,6 +5,7 @@ import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyec
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
 public class Cliente {
 
@@ -71,5 +72,26 @@ public class Cliente {
 
     public void setProyectos(List<Proyecto> proyectos) {
         this.proyectos = proyectos;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Cliente.class.getSimpleName() + "[", "]")
+                .add("id_cliente=" + id_cliente)
+                .add("nombre='" + nombre + "'")
+                .add("direccion='" + direccion + "'")
+                .add("telefono='" + telefono + "'")
+                .add("email='" + email + "'")
+                .add("password='" + password + "'")
+                .add("proyectos=" + proyectos)
+                .toString();
     }
 }

@@ -10,6 +10,7 @@ import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Cliente;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
 public class Proyecto {
 
@@ -140,5 +141,19 @@ public class Proyecto {
 
     public void setLibroDiarioList(List<LibroDiario> libroDiarioList) {
         this.libroDiarioList = libroDiarioList;
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Proyecto.class.getSimpleName() + "[", "]")
+                .add("id_proyecto=" + id_proyecto)
+                .add("nombre='" + nombre + "'")
+                .add("fecha_inicio=" + fecha_inicio)
+                .add("fecha_fin_estimada=" + fecha_fin_estimada)
+                .add("fecha_fin_real=" + fecha_fin_real)
+                .add("estado='" + estado + "'")
+                .add("presupuesto=" + presupuesto)
+                .add("inventario=" + inventario)
+                .toString();
     }
 }

@@ -1,5 +1,7 @@
 package co.edu.uniquindio.ModuloFacturacionContabilidad.App;
 
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Principal.Principal;
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Controlador.EcenariosController;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Controlador.LoginController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -9,8 +11,14 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class Aplicacion extends Application {
+
+
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+        new EcenariosController(primaryStage);
+
+        /*
         // Cargar el archivo FXML
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/login.fxml"));
         AnchorPane root = loader.load();
@@ -22,7 +30,7 @@ public class Aplicacion extends Application {
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Inicio de sesión");
-        primaryStage.show();
+        primaryStage.show();*/
     }
 
     public static void main(String[] args) {
