@@ -1,10 +1,6 @@
 package co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario;
 
-import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.OrdenDeCompra;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Proveedor;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Producto {
 

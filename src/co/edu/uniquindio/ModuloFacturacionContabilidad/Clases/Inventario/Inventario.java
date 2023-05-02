@@ -1,7 +1,5 @@
 package co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario;
 
-import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto;
-
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;

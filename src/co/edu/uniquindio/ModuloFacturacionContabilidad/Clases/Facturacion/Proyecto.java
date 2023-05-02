@@ -3,8 +3,6 @@ package co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.LibroDiario;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.LibroMayor;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Inventario;
-import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Producto;
-import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Servicio;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Cliente;
 
 import java.time.LocalDate;

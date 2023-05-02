@@ -1,7 +1,6 @@
 package co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona;
 
-import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.OrdenDeCompra;
-import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.*;
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Producto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,7 +72,7 @@ public class Proveedor {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(java.lang.Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 

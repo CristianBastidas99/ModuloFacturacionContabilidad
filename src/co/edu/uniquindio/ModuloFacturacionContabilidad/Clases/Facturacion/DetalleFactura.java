@@ -4,18 +4,17 @@ import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.Impue
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Producto;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Servicio;
 
-import java.time.LocalDate;
-
 public class DetalleFactura {
 
     private int idDetalleFactura;
     private double cantidad;
-    private Object item;
+    private java.lang.Object item;
     private Impuesto impuesto;
 
-    public DetalleFactura(int idDetalleFactura, double cantidad, Impuesto impuesto) {
+    public DetalleFactura(int idDetalleFactura, double cantidad, java.lang.Object item, Impuesto impuesto) {
         this.idDetalleFactura = idDetalleFactura;
         this.cantidad = cantidad;
+        this.item = item;
         this.impuesto = impuesto;
     }
 
@@ -45,11 +44,11 @@ public class DetalleFactura {
         this.cantidad = cantidad;
     }
 
-    public Object getItem() {
+    public java.lang.Object getItem() {
         return item;
     }
 
-    public void setItem(Object item) {
+    public void setItem(java.lang.Object item) {
         this.item = item;
     }
 
