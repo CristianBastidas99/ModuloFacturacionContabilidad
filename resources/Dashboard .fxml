@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderPane" prefHeight="564.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.ModuloFacturacionContabilidad.Controlador.DashboardController">
+    <top>
+        <MenuBar fx:id="menuBar">
+            <Menu text="Persona">
+                <MenuItem onAction="#handleCliente" text="Cliente" />
+                <MenuItem onAction="#handleProveedor" text="Proveedor" />
+            </Menu>
+            <Menu text="Contabilidad">
+                <MenuItem onAction="#handleRegistroContable" text="RegistroContable" />
+                <MenuItem onAction="#handleCuenta" text="Cuenta" />
+                <MenuItem onAction="#handleImpuesto" text="Impuesto" />
+                <MenuItem onAction="#handleAsientoContable" text="AsientoContable" />
+                <MenuItem onAction="#handleLibroDiario" text="LibroDiario" />
+                <MenuItem onAction="#handleLibroMayor" text="LibroMayor" />
+            </Menu>
+            <Menu text="Facturación">
+                <MenuItem onAction="#handleOrdenDeCompra" text="OrdenDeCompra" />
+                <MenuItem onAction="#handleFactura" text="Factura" />
+                <MenuItem onAction="#handleDetalleFactura" text="DetalleFactura" />
+                <MenuItem onAction="#handlePago" text="Pago" />
+            </Menu>
+            <Menu text="Reporte">
+                <MenuItem onAction="#handleTransaccion" text="Transacción" />
+            </Menu>
+            <Menu text="Inventario">
+                <MenuItem onAction="#handleProducto" text="Producto" />
+                <MenuItem onAction="#handleServicio" text="Servicio" />
+                <MenuItem onAction="#handleInventario" text="Inventario" />
+            </Menu>
+         <Menu text="Cuenta">
+           <items>
+             <MenuItem onAction="#handleCerrarSesion" text="Cerrar Sesion" />
+           </items>
+         </Menu>
+        </MenuBar>
+    </top>
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="10" BorderPane.alignment="CENTER">
+         <Separator prefWidth="200.0" />
+            <Label text="Información general del proyecto">
+            <font>
+               <Font name="System Bold" size="16.0" />
+            </font></Label>
+            <GridPane alignment="CENTER">
+                <Label text="Nombre:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <Label fx:id="nombreLabel" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <Label text="Fecha de inicio:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <Label fx:id="fechaInicioLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label text="Fecha estimada de finalización:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <Label fx:id="fechaFinEstimadaLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label text="Fecha real de finalización:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <Label fx:id="fechaFinRealLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Label text="Estado:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <Label fx:id="estadoLabel" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label text="Presupuesto:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                <Label fx:id="presupuestoLabel" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <columnConstraints>
+               <ColumnConstraints />
+               <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
+            </GridPane>
+            <Separator />
+            <Label text="Gráfico de ingresos/gastos/ganancias/pérdidas">
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font></Label>
+         <LineChart fx:id="lineChart">
+           <xAxis>
+             <CategoryAxis side="BOTTOM" />
+           </xAxis>
+           <yAxis>
+             <NumberAxis side="LEFT" />
+           </yAxis>
+         </LineChart>
+            <!--<LineChart fx:id="lineChart" prefWidth="600" prefHeight="400" />-->
+        </VBox>
+    </center>
+   <bottom>
+      <Label fx:id="userLabel" text="Usuario: " BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
