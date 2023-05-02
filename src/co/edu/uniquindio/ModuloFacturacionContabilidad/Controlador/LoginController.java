@@ -1,5 +1,6 @@
 package co.edu.uniquindio.ModuloFacturacionContabilidad.Controlador;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -9,6 +10,7 @@ import javafx.scene.layout.GridPane;
 
 public class LoginController {
 
+    private EcenariosController ecenariosController;
     @FXML
     private GridPane loginPane;
     @FXML
@@ -35,7 +37,8 @@ public class LoginController {
         if (isValidUser(email, password)) {
             // Iniciar sesión correctamente
             // Aquí puedes cambiar esta acción por la que necesites
-            System.out.println("Iniciando sesión con el correo electrónico: " + email);
+            System.out.println("Iniciando sesión con el Cliente: " + ecenariosController.getClienteSesion().toString());
+            ecenariosController.cargarSeleccionarProyecto();
         } else {
             // Credenciales inválidas
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -47,15 +50,17 @@ public class LoginController {
     }
 
     private boolean isValidEmail(String email) {
-        // Aquí puedes agregar tu propia validación de correo electrónico
-        // Este ejemplo solo verifica que el correo tenga un formato válido
         return email.matches("^\\S+@\\S+\\.\\S+$");
     }
 
     private boolean isValidUser(String email, String password) {
-        // Aquí puedes agregar tu propia validación de usuario y contraseña
-        // Este ejemplo solo verifica que el correo y la contraseña sean iguales
-        return true;//email.equals(password);
+        return ecenariosController.isValidUser(email, password);
+    }
+
+    public void init(EcenariosController ecenariosController) {
+        // TODO Auto-generated method stub
+
+        this.ecenariosController = ecenariosController;
     }
 
 }
