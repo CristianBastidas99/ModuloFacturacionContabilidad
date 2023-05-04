@@ -33,16 +33,14 @@
             <Menu text="Facturación">
                 <MenuItem onAction="#handleOrdenDeCompra" text="OrdenDeCompra" />
                 <MenuItem onAction="#handleFactura" text="Factura" />
-                <MenuItem onAction="#handleDetalleFactura" text="DetalleFactura" />
                 <MenuItem onAction="#handlePago" text="Pago" />
             </Menu>
             <Menu text="Reporte">
                 <MenuItem onAction="#handleTransaccion" text="Transacción" />
             </Menu>
             <Menu text="Inventario">
-                <MenuItem onAction="#handleProducto" text="Producto" />
-                <MenuItem onAction="#handleServicio" text="Servicio" />
                 <MenuItem onAction="#handleInventario" text="Inventario" />
+                <MenuItem onAction="#handleItem" text="Producto" />
             </Menu>
          <Menu text="Cuenta">
            <items>

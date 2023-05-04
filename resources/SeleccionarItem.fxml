@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.ModuloFacturacionContabilidad.Controlador.SeleccionarItemController">
+    <children>
+        <VBox alignment="CENTER" layoutX="30.0" layoutY="30.0" prefHeight="340.0" prefWidth="540.0" spacing="10.0">
+            <Label alignment="CENTER" prefHeight="48.0" prefWidth="187.0" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Items" />
+            <TableView fx:id="tablaItems">
+                <columns>
+                    <TableColumn fx:id="colIdItem" prefWidth="75.0" text="ID" />
+                    <TableColumn fx:id="colTipo" prefWidth="75.0" text="Tipo" />
+                    <TableColumn fx:id="colNombre" prefWidth="150.0" text="Nombre" />
+                    <TableColumn fx:id="colDescripcion" prefWidth="175.0" text="Descripción" />
+                    <TableColumn fx:id="colCostoUnitario" prefWidth="75.0" text="Costo Unitario" />
+                </columns>
+            </TableView>
+            <HBox alignment="CENTER" spacing="10.0">
+                <Button fx:id="btnAgregar" mnemonicParsing="false" text="Agregar" onAction="#handleAgregar"/>
+                <Button fx:id="btnVolver" mnemonicParsing="false" text="Volver" onAction="#handleVolver"/>
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

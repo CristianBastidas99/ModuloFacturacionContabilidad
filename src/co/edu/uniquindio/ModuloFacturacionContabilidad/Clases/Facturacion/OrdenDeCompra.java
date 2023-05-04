@@ -1,6 +1,6 @@
 package co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion;
 
-import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Producto;
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Item;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Proveedor;
 
 import java.time.LocalDate;
@@ -13,7 +13,7 @@ public class OrdenDeCompra {
     private LocalDate fecha;
     private double total;
     private Proveedor proveedor;
-    private List<Object> items = new ArrayList();
+    private List<Item> items = new ArrayList();
 
     public OrdenDeCompra(int id_orden_compra, LocalDate fecha, double total, Proveedor proveedor) {
         this.id_orden_compra = id_orden_compra;
@@ -54,11 +54,11 @@ public class OrdenDeCompra {
         this.proveedor = proveedor;
     }
 
-    public List<Object> getItems() {
+    public List<Item> getItems() {
         return items;
     }
 
-    public void setItems(List<Object> items) {
+    public void setItems(List<Item> items) {
         this.items = items;
     }
 }

@@ -136,12 +136,11 @@ public class DashboardController implements Initializable {
     }
 
     public void handleOrdenDeCompra(ActionEvent actionEvent) {
+        ecenariosController.cargarOrdenDeCompra();
     }
 
     public void handleFactura(ActionEvent actionEvent) {
-    }
-
-    public void handleDetalleFactura(ActionEvent actionEvent) {
+        ecenariosController.cargarFactura();
     }
 
     public void handlePago(ActionEvent actionEvent) {
@@ -150,15 +149,15 @@ public class DashboardController implements Initializable {
     public void handleTransaccion(ActionEvent actionEvent) {
     }
 
-    public void handleProducto(ActionEvent actionEvent) {
-    }
-
-    public void handleServicio(ActionEvent actionEvent) {
-    }
-
     public void handleInventario(ActionEvent actionEvent) {
     }
 
     public void handleCerrarSesion(ActionEvent actionEvent) {
+        ecenariosController.setClienteSesion(null);
+        ecenariosController.setProyectoSeleccionado(null);
+        ecenariosController.cargarLogin();
+    }
+
+    public void handleItem(ActionEvent actionEvent) {
     }
 }

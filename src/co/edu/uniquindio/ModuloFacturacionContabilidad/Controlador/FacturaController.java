@@ -1,12 +1,20 @@
 package co.edu.uniquindio.ModuloFacturacionContabilidad.Controlador;
 
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.Impuesto;
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.DetalleFactura;
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Item;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -64,6 +72,33 @@ public class FacturaController implements Initializable {
         this.ecenariosController = ecenariosController;
     }
 
+    @FXML
+    private void mostrarVentanaAdvertencia() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DetalleFactura.fxml"));
+        Parent root = fxmlLoader.load();
+
+        // Asociar el controlador con el archivo FXML
+        //OrdenDeCompraController controller = loader.getController();
+        //controller.init(this);
+
+        // Obtén los datos ingresados por el usuario en los campos de texto
+        TextField idDetalleFacturaField = (TextField) fxmlLoader.getNamespace().get("idDetalleFacturaField");
+        double cantidad = Double.parseDouble(((TextField) fxmlLoader.getNamespace().get("cantidadField")).getText());
+        ComboBox<Item> itemComboBox = (ComboBox<Item>) fxmlLoader.getNamespace().get("itemComboBox");
+        Item item = itemComboBox.getValue();
+        ComboBox<Impuesto> impuestoComboBox = (ComboBox<Impuesto>) fxmlLoader.getNamespace().get("impuestoComboBox");
+        Impuesto impuesto = impuestoComboBox.getValue();
+
+        // Crea un nuevo objeto DetalleFactura con los datos ingresados
+        int idDetalleFactura = Integer.parseInt(idDetalleFacturaField.getText());
+        DetalleFactura detalleFactura = new DetalleFactura(idDetalleFactura, cantidad, item, impuesto);
+
+        // Crea una nueva ventana para mostrar el objeto creado
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
     public void handleAgregarDetalleButton(ActionEvent actionEvent) {
     }
 
@@ -80,5 +115,6 @@ public class FacturaController implements Initializable {
     }
 
     public void handleVolverButtonAction(ActionEvent actionEvent) {
+        ecenariosController.cargarDashboard();
     }
 }

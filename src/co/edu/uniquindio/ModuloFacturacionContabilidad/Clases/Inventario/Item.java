@@ -2,28 +2,30 @@ package co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario;
 
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Proveedor;
 
-public class Producto {
+public class Item {
 
-    private int id_producto;
+    private int id;
     private String nombre;
     private String descripcion;
-    private double precio_unitario;;
+    private double precioUnitario;
+    private TipoItem tipo;
     private Proveedor proveedor;
 
-    public Producto(int id_producto, String nombre, String descripcion, double precio_unitario, Proveedor proveedor) {
-        this.id_producto = id_producto;
+    public Item(int id, String nombre, String descripcion, double precioUnitario, Proveedor proveedor, TipoItem tipo) {
+        this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.precio_unitario = precio_unitario;
+        this.precioUnitario = precioUnitario;
         this.proveedor = proveedor;
+        this.tipo = tipo;
     }
 
-    public int getId_producto() {
-        return id_producto;
+    public int getId() {
+        return id;
     }
 
-    public void setId_producto(int id_producto) {
-        this.id_producto = id_producto;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -42,12 +44,20 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public double getPrecio_unitario() {
-        return precio_unitario;
+    public double getPrecioUnitario() {
+        return precioUnitario;
     }
 
-    public void setPrecio_unitario(double precio_unitario) {
-        this.precio_unitario = precio_unitario;
+    public void setPrecioUnitario(double precioUnitario) {
+        this.precioUnitario = precioUnitario;
+    }
+
+    public TipoItem getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoItem tipo) {
+        this.tipo = tipo;
     }
 
     public Proveedor getProveedor() {

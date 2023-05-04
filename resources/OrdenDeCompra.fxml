@@ -11,10 +11,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="AnchorPane" prefHeight="1014.0" prefWidth="600" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.ModuloFacturacionContabilidad.Controlador.OrdenDeCompraController">
-    <VBox alignment="CENTER" layoutX="6.0" prefHeight="1002.0" prefWidth="586.0" spacing="10">
+<AnchorPane fx:id="AnchorPane" prefHeight="696.0" prefWidth="600" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.ModuloFacturacionContabilidad.Controlador.OrdenDeCompraController">
+    <VBox alignment="CENTER" layoutX="6.0" prefHeight="674.0" prefWidth="586.0" spacing="10">
         <Label prefHeight="48.0" prefWidth="187.0" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Ordenes de Compra" />
-        <TableView fx:id="tablaOrdenes" VBox.vgrow="ALWAYS">
+        <TableView fx:id="tablaOrdenes" prefWidth="586.0" VBox.vgrow="ALWAYS">
             <columns>
                 <TableColumn fx:id="colIdOrdenCompra" prefWidth="100" text="ID Orden Compra" />
                 <TableColumn fx:id="colFecha" prefWidth="100" text="Fecha" />
@@ -37,7 +37,7 @@
             </HBox>
             <HBox spacing="5" HBox.hgrow="ALWAYS">
                 <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="120.0" text="Id Proveedor:" />
-                <TextField fx:id="lblIdProveedor" promptText="Id Proveedor" HBox.hgrow="ALWAYS" />
+                <TextField fx:id="tfIdProveedor" promptText="Id Proveedor" HBox.hgrow="ALWAYS" />
             </HBox>
         </VBox>
         <Separator />
@@ -47,6 +47,7 @@
                 <columns>
                     <TableColumn fx:id="colIdItem" prefWidth="100" text="ID Item" />
                     <TableColumn fx:id="colTipo" prefWidth="100" text="Tipo" />
+                    <TableColumn fx:id="colNombre" prefWidth="100" text="Descripción" />
                     <TableColumn fx:id="colDescripcion" prefWidth="100" text="Descripción" />
                     <TableColumn fx:id="colCostoUnitario" prefWidth="100" text="Costo Unitario" />
                 </columns>
@@ -56,16 +57,17 @@
             </TableView>
 
             <VBox alignment="CENTER_LEFT" spacing="10">
-                <Button fx:id="btnAgregar" text="Agregar" />
-                <Button fx:id="btnQuitar" text="Quitar" />
+                <Button fx:id="btnAgregar" onAction="#agregarItem" text="Agregar" />
+                <Button fx:id="btnQuitar" onAction="#quitarItem" text="Quitar" />
             </VBox>
         </HBox>
 
         <HBox alignment="CENTER" prefHeight="36.0" prefWidth="586.0" spacing="10">
-            <Button fx:id="btnCrear" text="Crear" />
-            <Button fx:id="btnEditar" text="Editar" />
-            <Button fx:id="btnEliminar" text="Eliminar" />
-            <Button fx:id="btnVolver" text="Volver" />
+            <Button fx:id="btnLimpiar" onAction="#limpiarPabtalla" text="Limpiar" />
+            <Button fx:id="btnCrear" onAction="#crearFactura" text="Crear" />
+            <Button fx:id="btnEditar" onAction="#editarFactura" text="Editar" />
+            <Button fx:id="btnEliminar" onAction="#eliminarFactura" text="Eliminar" />
+            <Button fx:id="btnVolver" onAction="#volver" text="Volver" />
         </HBox>
 
     </VBox>

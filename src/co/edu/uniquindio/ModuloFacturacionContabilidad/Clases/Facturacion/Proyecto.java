@@ -1,8 +1,10 @@
 package co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion;
 
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.Impuesto;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.LibroDiario;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.LibroMayor;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Inventario;
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Item;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Cliente;
 
 import java.time.LocalDate;
@@ -25,6 +27,7 @@ public class Proyecto {
     private List<Factura> facturas = new ArrayList();
     private List<LibroMayor> libroMayorList = new ArrayList();
     private List<LibroDiario> libroDiarioList = new ArrayList();
+    private List<Impuesto> impuestos= new ArrayList<>();
 
     public Proyecto(int id_proyecto, String nombre, LocalDate fecha_inicio, LocalDate fecha_fin_estimada,
                     LocalDate fecha_fin_real, String estado, double presupuesto) {
@@ -35,6 +38,15 @@ public class Proyecto {
         this.fecha_fin_real = fecha_fin_real;
         this.estado = estado;
         this.presupuesto = presupuesto;
+    }
+
+    public List<String> obtenerNombreImpuestos(){
+
+        ArrayList<String> nombreImpuesto = new ArrayList<>();
+        for (Impuesto impuesto: impuestos) {
+            nombreImpuesto.add(impuesto.getNombre() + " - %" + impuesto.getPorcentaje());
+        }
+        return nombreImpuesto;
     }
 
     public int getId_proyecto() {

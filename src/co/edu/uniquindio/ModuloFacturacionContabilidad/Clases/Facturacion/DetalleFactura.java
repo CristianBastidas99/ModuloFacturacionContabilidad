@@ -1,17 +1,16 @@
 package co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion;
 
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.Impuesto;
-import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Producto;
-import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Servicio;
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Item;
 
 public class DetalleFactura {
 
     private int idDetalleFactura;
     private double cantidad;
-    private java.lang.Object item;
+    private Item item;
     private Impuesto impuesto;
 
-    public DetalleFactura(int idDetalleFactura, double cantidad, java.lang.Object item, Impuesto impuesto) {
+    public DetalleFactura(int idDetalleFactura, double cantidad, Item item, Impuesto impuesto) {
         this.idDetalleFactura = idDetalleFactura;
         this.cantidad = cantidad;
         this.item = item;
@@ -19,13 +18,7 @@ public class DetalleFactura {
     }
 
     public double calcularSubtotal() {
-        double precioUnitario = 0;
-        if (item instanceof Producto) {
-            precioUnitario = ((Producto) item).getPrecio_unitario();
-        } else if (item instanceof Servicio) {
-            precioUnitario = ((Servicio) item).getCostoPorHora();
-        }
-        return cantidad * precioUnitario;
+        return cantidad * item.getPrecioUnitario();
     }
 
     public int getIdDetalleFactura() {
@@ -44,11 +37,11 @@ public class DetalleFactura {
         this.cantidad = cantidad;
     }
 
-    public java.lang.Object getItem() {
+    public Item getItem() {
         return item;
     }
 
-    public void setItem(java.lang.Object item) {
+    public void setItem(Item item) {
         this.item = item;
     }
 

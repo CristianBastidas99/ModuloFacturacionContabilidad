@@ -1,9 +1,8 @@
 package co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Principal;
 
-import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.OrdenDeCompra;
-import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto;
-import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Cliente;
-import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Proveedor;
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.*;
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.*;
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.*;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -31,11 +30,51 @@ public class Principal {
         Proveedor proveedor2 = new Proveedor(2, "Proveedor 2", "Calle Proveedor 2", "22222222", "proveedor2@example.com");
         Proveedor proveedor3 = new Proveedor(3, "Proveedor 3", "Calle Proveedor 3", "33333333", "proveedor3@example.com");
 
+        OrdenDeCompra orden1 = new OrdenDeCompra(1, LocalDate.now(), 1000.0, proveedor1);
+        OrdenDeCompra orden2 = new OrdenDeCompra(2, LocalDate.now(), 2000.0, proveedor2);
+        OrdenDeCompra orden3 = new OrdenDeCompra(3, LocalDate.now(), 3000.0, proveedor3);
+
+        Item item1 = new Item(1, "Item 1 Proveedor 1", "Descripción del item 1 del proveedor 1", 10.0, proveedor1, TipoItem.PRODUCTO);
+        Item item2 = new Item(2, "Item 2 Proveedor 1", "Descripción del item 2 del proveedor 1", 20.0, proveedor1, TipoItem.PRODUCTO);
+        Item item3 = new Item(3, "Item 3 Proveedor 1", "Descripción del item 3 del proveedor 1", 30.0, proveedor1, TipoItem.SERVICIO);
+        Item item4 = new Item(4, "Item 1 Proveedor 2", "Descripción del item 1 del proveedor 2", 15.0, proveedor2, TipoItem.PRODUCTO);
+        Item item5 = new Item(5, "Item 2 Proveedor 2", "Descripción del item 2 del proveedor 2", 25.0, proveedor2, TipoItem.PRODUCTO);
+        Item item6 = new Item(6, "Item 3 Proveedor 2", "Descripción del item 3 del proveedor 2", 35.0, proveedor2, TipoItem.SERVICIO);
+
+        orden1.getItems().add(item1);
+        orden1.getItems().add(item2);
+        orden1.getItems().add(item3);
+
+        orden2.getItems().add(item4);
+        orden2.getItems().add(item5);
+        orden2.getItems().add(item6);
+
+        Inventario inventario = new Inventario(1, "Inventario principal", LocalDate.now());
+
+        inventario.getItems().add(item1);
+        inventario.getCantidades().put(item1, 5);
+        inventario.getItems().add(item2);
+        inventario.getCantidades().put(item2, 10);
+        inventario.getItems().add(item3);
+        inventario.getCantidades().put(item3, 15);
+        inventario.getItems().add(item4);
+        inventario.getCantidades().put(item4, 13);
+        inventario.getItems().add(item5);
+        inventario.getCantidades().put(item5, 7);
+        inventario.getItems().add(item6);
+        inventario.getCantidades().put(item6, 3);
+
         // Creamos 3 instancias de Proyecto, cada una asociada a un cliente y un proveedor
-        Proyecto proyecto1 = new Proyecto(1, "Proyecto 1", LocalDate.now(), LocalDate.now().plusMonths(1), null, "en curso", 5000);
+        Proyecto proyecto1 = new Proyecto(1, "Proyecto 1", LocalDate.now(), LocalDate.now().plusMonths(5), null, "en curso", 5000);
+
         proyecto1.getClientes().add(cliente1);
         proyecto1.getClientes().add(cliente4);
         proyecto1.getClientes().add(cliente5);
+        proyecto1.getOrdenDeCompras().add(orden1);
+        proyecto1.getOrdenDeCompras().add(orden2);
+        proyecto1.getOrdenDeCompras().add(orden3);
+        proyecto1.setInventario(inventario);
+
         cliente1.getProyectos().add(proyecto1);
         cliente4.getProyectos().add(proyecto1);
         cliente5.getProyectos().add(proyecto1);

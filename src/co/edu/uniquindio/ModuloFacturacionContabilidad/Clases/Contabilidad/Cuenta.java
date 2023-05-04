@@ -5,6 +5,7 @@ import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Cliente;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.Transaccion;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Cuenta {
 
@@ -13,6 +14,7 @@ public class Cuenta {
     private LocalDate fecha;
     private TipoCuenta tipoCuenta;
     private Cliente cliente;
+    private ArrayList<AsientoContable> asientoContables = new ArrayList<>();
 
     public Cuenta(int id_cuenta, String nombre, LocalDate fecha, TipoCuenta tipoCuenta, Cliente cliente) {
         this.id_cuenta = id_cuenta;
@@ -60,5 +62,13 @@ public class Cuenta {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public ArrayList<AsientoContable> getAsientoContables() {
+        return asientoContables;
+    }
+
+    public void setAsientoContables(ArrayList<AsientoContable> asientoContables) {
+        this.asientoContables = asientoContables;
     }
 }
