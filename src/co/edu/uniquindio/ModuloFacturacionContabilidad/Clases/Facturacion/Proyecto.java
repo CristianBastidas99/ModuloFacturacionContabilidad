@@ -6,6 +6,7 @@ import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.Libro
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Inventario;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Item;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Cliente;
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.Notificacion;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class Proyecto {
     private List<LibroMayor> libroMayorList = new ArrayList();
     private List<LibroDiario> libroDiarioList = new ArrayList();
     private List<Impuesto> impuestos= new ArrayList<>();
+    private List<Notificacion> notificaciones = new ArrayList();
 
     public Proyecto(int id_proyecto, String nombre, LocalDate fecha_inicio, LocalDate fecha_fin_estimada,
                     LocalDate fecha_fin_real, String estado, double presupuesto) {
@@ -151,6 +153,23 @@ public class Proyecto {
 
     public void setLibroDiarioList(List<LibroDiario> libroDiarioList) {
         this.libroDiarioList = libroDiarioList;
+    }
+
+
+    public List<Impuesto> getImpuestos() {
+        return impuestos;
+    }
+
+    public void setImpuestos(List<Impuesto> impuestos) {
+        this.impuestos = impuestos;
+    }
+
+    public List<Notificacion> getNotificaciones() {
+        return notificaciones;
+    }
+
+    public void setNotificaciones(List<Notificacion> notificaciones) {
+        this.notificaciones = notificaciones;
     }
 
     @Override

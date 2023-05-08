@@ -22,6 +22,8 @@ public class OrdenDeCompra {
         this.proveedor = proveedor;
     }
 
+    public OrdenDeCompra(){    }
+
     public int getId_orden_compra() {
         return id_orden_compra;
     }

@@ -63,10 +63,10 @@
         </HBox>
 
         <HBox alignment="CENTER" prefHeight="36.0" prefWidth="586.0" spacing="10">
-            <Button fx:id="btnLimpiar" onAction="#limpiarPabtalla" text="Limpiar" />
-            <Button fx:id="btnCrear" onAction="#crearFactura" text="Crear" />
-            <Button fx:id="btnEditar" onAction="#editarFactura" text="Editar" />
-            <Button fx:id="btnEliminar" onAction="#eliminarFactura" text="Eliminar" />
+            <Button fx:id="btnLimpiar" onAction="#limpiarPantalla" text="Limpiar" />
+            <Button fx:id="btnCrear" onAction="#crearOrdenDeCompra" text="Crear" />
+            <Button fx:id="btnEditar" onAction="#editarOrdenDeCompra" text="Editar" />
+            <Button fx:id="btnEliminar" onAction="#eliminarOrdenDeCompra" text="Eliminar" />
             <Button fx:id="btnVolver" onAction="#volver" text="Volver" />
         </HBox>
 
