@@ -2,6 +2,8 @@ package co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion;
 
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Item;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Proveedor;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -62,5 +64,9 @@ public class OrdenDeCompra {
 
     public void setItems(List<Item> items) {
         this.items = items;
+    }
+
+    public IntegerProperty idOrdenDeCompraProperty() {
+        return new SimpleIntegerProperty(id_orden_compra);
     }
 }

@@ -44,6 +44,7 @@
             </Menu>
          <Menu text="Cuenta">
            <items>
+               <MenuItem onAction="#handleCambiarProyecto" text="Cambiar de Proyecto" />
              <MenuItem onAction="#handleCerrarSesion" text="Cerrar Sesion" />
            </items>
          </Menu>

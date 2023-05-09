@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class EcenariosController {
@@ -160,6 +161,28 @@ public class EcenariosController {
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Seleccionar Item");
+            primaryStage.show();
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }
+    }
+
+    public void cargarSDetalleFactura(){
+        try {
+
+            // Cargar el archivo FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/DetalleFactura.fxml"));
+            VBox root = loader.load();
+
+            // Asociar el controlador con el archivo FXML
+            DetalleFacturaController controller = loader.getController();
+            controller.init(this);
+
+            // Configurar la escena
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("Detalle de Factura");
             primaryStage.show();
         } catch (Exception e) {
             // TODO: handle exception

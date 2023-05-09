@@ -1,6 +1,8 @@
 package co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad;
 
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Proveedor;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 
 public class Impuesto {
 
@@ -36,5 +38,9 @@ public class Impuesto {
 
     public void setPorcentaje(double porcentaje) {
         this.porcentaje = porcentaje;
+    }
+
+    public DoubleProperty porcentajeProperty(){
+        return new SimpleDoubleProperty(porcentaje);
     }
 }

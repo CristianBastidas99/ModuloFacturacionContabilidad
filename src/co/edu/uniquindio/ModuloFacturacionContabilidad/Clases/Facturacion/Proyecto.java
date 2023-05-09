@@ -30,6 +30,7 @@ public class Proyecto {
     private List<LibroDiario> libroDiarioList = new ArrayList();
     private List<Impuesto> impuestos= new ArrayList<>();
     private List<Notificacion> notificaciones = new ArrayList();
+    private List<Pago> pagos = new ArrayList();
 
     public Proyecto(int id_proyecto, String nombre, LocalDate fecha_inicio, LocalDate fecha_fin_estimada,
                     LocalDate fecha_fin_real, String estado, double presupuesto) {
@@ -170,6 +171,14 @@ public class Proyecto {
 
     public void setNotificaciones(List<Notificacion> notificaciones) {
         this.notificaciones = notificaciones;
+    }
+
+    public List<Pago> getPagos() {
+        return pagos;
+    }
+
+    public void setPagos(List<Pago> pagos) {
+        this.pagos = pagos;
     }
 
     @Override

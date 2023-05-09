@@ -1,6 +1,8 @@
 package co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion;
 
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.Transaccion;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 
 import java.time.LocalDate;
 import java.util.Random;
@@ -107,5 +109,9 @@ public class Pago {
 
     public void setTransaccion(Transaccion transaccion) {
         this.transaccion = transaccion;
+    }
+
+    public IntegerProperty idPagoProperty() {
+        return new SimpleIntegerProperty(id_pago);
     }
 }

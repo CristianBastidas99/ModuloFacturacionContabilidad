@@ -160,4 +160,7 @@ public class DashboardController implements Initializable {
 
     public void handleItem(ActionEvent actionEvent) {
     }
+
+    public void handleCambiarProyecto(ActionEvent actionEvent) {
+    }
 }

@@ -1,6 +1,8 @@
 package co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario;
 
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Proveedor;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class Item {
 
@@ -66,5 +68,9 @@ public class Item {
 
     public void setProveedor(Proveedor proveedor) {
         this.proveedor = proveedor;
+    }
+
+    public StringProperty toStringProperty(){
+        return new SimpleStringProperty(id + "(" + nombre + ", " + tipo.name() + ")");
     }
 }

@@ -3,6 +3,8 @@ package co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Factura;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.Proyecto;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.Notificacion;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -97,5 +99,9 @@ public class Cliente {
                 .add("password='" + password + "'")
                 .add("proyectos=" + proyectos)
                 .toString();
+    }
+
+    public IntegerProperty idClienteProperty() {
+        return new SimpleIntegerProperty(id_cliente);
     }
 }

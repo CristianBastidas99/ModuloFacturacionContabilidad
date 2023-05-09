@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.control.DatePicker?>
 <AnchorPane fx:id="AnchorPane" prefHeight="714.0" prefWidth="600" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.ModuloFacturacionContabilidad.Controlador.FacturaController">
     <VBox alignment="CENTER" layoutX="7.0" prefHeight="706.0" prefWidth="586.0" spacing="10">
         <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Facturas" />
@@ -29,7 +30,7 @@
         <VBox spacing="10" VBox.vgrow="ALWAYS">
             <HBox spacing="5" HBox.hgrow="ALWAYS">
                 <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="120.0" text="Fecha:" />
-                <TextField fx:id="fechaField" promptText="Fecha" HBox.hgrow="ALWAYS" />
+                <DatePicker fx:id="fechaField"  HBox.hgrow="ALWAYS" />
             </HBox>
             <HBox spacing="5" HBox.hgrow="ALWAYS">
                 <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="120.0" text="Total:" />
