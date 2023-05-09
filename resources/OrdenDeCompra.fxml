@@ -47,7 +47,7 @@
                 <columns>
                     <TableColumn fx:id="colIdItem" prefWidth="100" text="ID Item" />
                     <TableColumn fx:id="colTipo" prefWidth="100" text="Tipo" />
-                    <TableColumn fx:id="colNombre" prefWidth="100" text="Descripción" />
+                    <TableColumn fx:id="colNombre" prefWidth="100" text="Nombre" />
                     <TableColumn fx:id="colDescripcion" prefWidth="100" text="Descripción" />
                     <TableColumn fx:id="colCostoUnitario" prefWidth="100" text="Costo Unitario" />
                 </columns>

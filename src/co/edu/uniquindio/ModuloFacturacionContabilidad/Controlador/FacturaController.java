@@ -158,7 +158,7 @@ public class FacturaController implements Initializable {
 
     }
 
-    public void handleAgregarDetalleButton(ActionEvent actionEvent) {
+    public void agregarDetalle(ActionEvent actionEvent) {
 
         // Obtener el modelo de selección de la ListView
         TableView.TableViewSelectionModel<Factura> selectionModel = facturaTable.getSelectionModel();
@@ -177,7 +177,7 @@ public class FacturaController implements Initializable {
 
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.isPresent() && result.get() == ButtonType.OK) {
-                    handleNuevaFacturaButtonAction(actionEvent);
+                    crearFactura(actionEvent);
                 } else {
                     // Hacer otra cosa si el usuario presiona "Cancelar"
                 }
@@ -269,19 +269,168 @@ public class FacturaController implements Initializable {
         return null;
     }
 
-    public void handleEliminarDetalleButton(ActionEvent actionEvent) {
+    public void eliminarDetalle(ActionEvent actionEvent) {
+
+        // Obtener el modelo de selección de la ListView
+        TableView.TableViewSelectionModel<Factura> selectionModel = facturaTable.getSelectionModel();
+        TableView.TableViewSelectionModel<DetalleFactura> detalleFacturaSelectionModel = detalleFacturaTable.getSelectionModel();
+        Factura factura = selectionModel.getSelectedItem();
+        DetalleFactura detalleFactura = detalleFacturaSelectionModel.getSelectedItem();
+
+        // Verificar si hay algún elemento seleccionado
+        if (factura != null) {
+            if (detalleFactura != null) {
+                factura.getDetalleFacturas().remove(detalleFactura);
+
+                // Crear la lista observable y agregar los objetos Factura
+                facturaTable.getItems().clear();
+                ObservableList<Factura> listaFacturas = FXCollections.observableArrayList();
+                List<Factura> listaFacturasBase = this.ecenariosController.getProyectoSeleccionado().getFacturas();
+                listaFacturas.addAll(listaFacturasBase);
+                facturaTable.setItems(listaFacturas);
+                facturaTable.getSelectionModel().select(listaFacturasBase.indexOf(factura));
+                facturaTable.refresh();
+
+                mostrarFactura(factura);
+                detalleFacturaTable.refresh();
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error en selección de DetalleFactura");
+                alert.setHeaderText("DetalleFactura no seleccionado");
+                alert.setContentText("Debes seleccionar un DetalleFactura de la lista para continuar.");
+                alert.showAndWait();
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error en selección de Factura");
+            alert.setHeaderText("Factura no seleccionado");
+            alert.setContentText("Debes seleccionar un Factura de la lista para continuar.");
+            alert.showAndWait();
+        }
     }
 
-    public void handleNuevaFacturaButtonAction(ActionEvent actionEvent) {
+    public void crearFactura(ActionEvent actionEvent) {
+        // Obtener el modelo de selección de la ListView
+        TableView.TableViewSelectionModel<Factura> selectionModel = facturaTable.getSelectionModel();
+        Factura factura = selectionModel.getSelectedItem();
+        List<Factura> listaFacturasBase = this.ecenariosController.getProyectoSeleccionado().getFacturas();
+
+        // Verificar si hay algún elemento seleccionado
+        if (factura == null) {
+            if(validarCampos()) {
+
+                String ultimoIdfactura = this.ecenariosController.getProyectoSeleccionado().getId_proyecto() + listaFacturasBase.size() + "";
+                int nuevoIdfactura = Integer.parseInt(ultimoIdfactura);
+
+                Factura nuevaFactura = new Factura();
+                nuevaFactura.setId_factura(nuevoIdfactura);
+                nuevaFactura.setFecha(fechaField.getValue());
+                nuevaFactura.setTotal(Double.parseDouble(totalField.getText()));
+                nuevaFactura.setOrdenDeCompra(isInOrdenDeCompras(Integer.parseInt(ordenDeCompraField.getText())));
+                nuevaFactura.setPago(isInPagos(Integer.parseInt(pagoField.getText())));
+                nuevaFactura.setCliente(isInCLiente(Integer.parseInt(clienteField.getText())));
+                this.ecenariosController.getProyectoSeleccionado().getFacturas().add(nuevaFactura);
+
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Se a creado Factura");
+                alert.setHeaderText("Con exito");
+                alert.showAndWait();
+
+                this.ecenariosController.cargarFactura();
+            }
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error en selección de Factura");
+            alert.setHeaderText("Factura seleccionado");
+            alert.setContentText("No puedes crear una Factura que ya existe, Tal vez quisieras editarla");
+            alert.showAndWait();
+        }
     }
 
-    public void handleEditarFacturaButtonAction(ActionEvent actionEvent) {
+    public void editarFactura(ActionEvent actionEvent) {
+        // Obtener el modelo de selección de la ListView
+        TableView.TableViewSelectionModel<Factura> selectionModel = facturaTable.getSelectionModel();
+        Factura factura = selectionModel.getSelectedItem();
+        List<Factura> listaFacturasBase = this.ecenariosController.getProyectoSeleccionado().getFacturas();
+
+        // Verificar si hay algún elemento seleccionado
+        if (factura != null) {
+            if(validarCampos()) {
+
+                factura.setFecha(fechaField.getValue());
+                factura.setTotal(Double.parseDouble(totalField.getText()));
+                factura.setOrdenDeCompra(isInOrdenDeCompras(Integer.parseInt(ordenDeCompraField.getText())));
+                factura.setPago(isInPagos(Integer.parseInt(pagoField.getText())));
+                factura.setCliente(isInCLiente(Integer.parseInt(clienteField.getText())));
+
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Se a editado factura");
+                alert.setHeaderText("Con exito");
+                alert.showAndWait();
+
+                this.ecenariosController.cargarFactura();
+            }
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error en selección de factura");
+            alert.setHeaderText("factura no seleccionado");
+            alert.setContentText("Debes seleccionar un factura de la lista para continuar.");
+            alert.showAndWait();
+        }
     }
 
-    public void handleEliminarFacturaButtonAction(ActionEvent actionEvent) {
+    public void eliminarFactura(ActionEvent actionEvent) {
+        // Obtener el modelo de selección de la ListView
+        TableView.TableViewSelectionModel<Factura> selectionModel = facturaTable.getSelectionModel();
+        Factura factura = selectionModel.getSelectedItem();
+        List<Factura> listaFacturasBase = this.ecenariosController.getProyectoSeleccionado().getFacturas();
+
+        // Verificar si hay algún elemento seleccionado
+        if (factura != null) {
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Eliminar Factura");
+            alert.setHeaderText("¿Seguro que desea eliminar la Factura?");
+            alert.setContentText("Presione OK para continuar o Cancelar para salir.");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                this.ecenariosController.getProyectoSeleccionado().getFacturas().remove(factura);
+                Alert alert2 = new Alert(Alert.AlertType.CONFIRMATION);
+                alert2.setTitle("Se a eliminado la Factura");
+                alert2.setHeaderText("Con exito");
+                alert2.showAndWait();
+                this.ecenariosController.cargarFactura();
+            } else {
+                // Hacer otra cosa si el usuario presiona "Cancelar"
+            }
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error en selección de Factura");
+            alert.setHeaderText("Factura no seleccionado");
+            alert.setContentText("Debes seleccionar un Factura de la lista para continuar.");
+            alert.showAndWait();
+        }
     }
 
-    public void handleVolverButtonAction(ActionEvent actionEvent) {
+    public void volver(ActionEvent actionEvent) {
+        ecenariosController.setFacturaSeleccionada(null);
         ecenariosController.cargarDashboard();
+    }
+
+    public void limpiarFactura(ActionEvent actionEvent) {
+        ecenariosController.setFacturaSeleccionada(null);
+        ecenariosController.setDetalleFacturaSeleccionado(null);
+        facturaTable.getSelectionModel().clearSelection();
+        fechaField.setValue(null);
+        totalField.setText("");
+        ordenDeCompraField.setText("");
+        pagoField.setText("");
+        clienteField.setText("");
+        detalleFacturaTable.getItems().clear(); // limpia la tabla de items
+        Alert alert2 = new Alert(Alert.AlertType.CONFIRMATION);
+        alert2.setTitle("Se a limpiado la pantalla");
+        alert2.setHeaderText("Con exito");
+        alert2.showAndWait();
     }
 }

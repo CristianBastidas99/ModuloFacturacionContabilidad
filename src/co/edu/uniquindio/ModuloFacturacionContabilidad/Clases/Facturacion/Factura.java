@@ -13,19 +13,19 @@ public class Factura {
     private double total;
     private OrdenDeCompra ordenDeCompra;
     private Pago pago;
-    private Proyecto proyecto;
     private Cliente cliente;
     private ArrayList<DetalleFactura>  detalleFacturas = new ArrayList();
 
-    public Factura(int id_factura, LocalDate fecha, double total, OrdenDeCompra ordenDeCompra, Pago pago, Proyecto proyecto, Cliente cliente) {
+    public Factura(int id_factura, LocalDate fecha, double total, OrdenDeCompra ordenDeCompra, Pago pago, Cliente cliente) {
         this.id_factura = id_factura;
         this.fecha = fecha;
         this.total = total;
         this.ordenDeCompra = ordenDeCompra;
         this.pago = pago;
-        this.proyecto = proyecto;
         this.cliente = cliente;
     }
+
+    public Factura(){}
 
     public int getId_factura() {
         return id_factura;
@@ -65,14 +65,6 @@ public class Factura {
 
     public void setPago(Pago pago) {
         this.pago = pago;
-    }
-
-    public Proyecto getProyecto() {
-        return proyecto;
-    }
-
-    public void setProyecto(Proyecto proyecto) {
-        this.proyecto = proyecto;
     }
 
     public Cliente getCliente() {

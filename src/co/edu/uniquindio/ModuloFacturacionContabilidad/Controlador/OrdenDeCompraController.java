@@ -198,7 +198,6 @@ public class OrdenDeCompraController implements Initializable {
             alert.setContentText("Debes seleccionar un OrdenDeCompra de la lista para continuar.");
             alert.showAndWait();
         }
-
     }
 
     public void crearOrdenDeCompra(ActionEvent actionEvent) {
