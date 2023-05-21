@@ -31,7 +31,7 @@ public class Principal {
         Cliente cliente1 = new Cliente(1, "Juan Perez", "Calle Falsa 123", "12345678", "juan.perez@example.com", "contraseña1");
         Cliente cliente2 = new Cliente(2, "María Rodríguez", "Calle Real 456", "23456789", "maria.rodriguez@example.com", "contraseña2");
         Cliente cliente3 = new Cliente(3, "Pedro Gómez", "Avenida Siempreviva 789", "34567890", "pedro.gomez@example.com", "contraseña3");
-        Cliente cliente4 = new Cliente(1, "Cristian Bastidas", "Calle 123", "1234567890", "cbastidaso@uqvirtual.edu.co", "password123");
+        Cliente cliente4 = new Cliente(1, "Cristian Bastidas", "Calle 123", "1234567890", "cfbastidaso@uqvirtual.edu.co", "password123");
         Cliente cliente5 = new Cliente(2, "Jessica Quintero", "Calle 456", "0987654321", "jyquinterov@uqvirtual.edu.co", "password456");
 
         // Creamos 3 instancias de Proveedor
