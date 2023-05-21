@@ -4,6 +4,7 @@ import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.Impue
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.*;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Item;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.*;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -57,12 +58,28 @@ public class FacturaController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         // Configurar las columnas de la tabla de facturas
-        idFacturaColumn.setCellValueFactory(new PropertyValueFactory<>("idFactura"));
+        idFacturaColumn.setCellValueFactory(new PropertyValueFactory<>("id_factura"));
         fechaColumn.setCellValueFactory(new PropertyValueFactory<>("fecha"));
         totalColumn.setCellValueFactory(new PropertyValueFactory<>("total"));
-        idOrdenDeCompraColumn.setCellValueFactory(cellData -> cellData.getValue().getOrdenDeCompra().idOrdenDeCompraProperty().asObject());
-        idPagoColumn.setCellValueFactory(cellData -> cellData.getValue().getPago().idPagoProperty().asObject());
-        idClienteColumn.setCellValueFactory(cellData -> cellData.getValue().getCliente().idClienteProperty().asObject());
+
+        idOrdenDeCompraColumn.setCellValueFactory(cellData -> {
+            OrdenDeCompra ordenDeCompra = cellData.getValue().getOrdenDeCompra();
+            Integer idOrdenDeCompra = (ordenDeCompra != null) ? ordenDeCompra.getId_orden_compra() : null;
+            return new SimpleObjectProperty<>(idOrdenDeCompra);
+        });
+
+        idPagoColumn.setCellValueFactory(cellData -> {
+            Pago pago = cellData.getValue().getPago();
+            Integer idPago = (pago != null) ? pago.getId_pago() : null;
+            return new SimpleObjectProperty<>(idPago);
+        });
+
+        idClienteColumn.setCellValueFactory(cellData -> {
+            Cliente cliente = cellData.getValue().getCliente();
+            Integer idCliente = (cliente != null) ? cliente.getId_cliente() : null;
+            return new SimpleObjectProperty<>(idCliente);
+        });
+
 
 
         // Configurar las columnas de la tabla de detalles de factura
@@ -166,6 +183,7 @@ public class FacturaController implements Initializable {
         if (selectionModel.getSelectedItem() != null) {
             // Obtener el índice del elemento seleccionado
             ecenariosController.setFacturaSeleccionada(selectionModel.getSelectedItem());
+            ecenariosController.setProveedorSeleccionado(selectionModel.getSelectedItem().getOrdenDeCompra().getProveedor());
             ecenariosController.cargarSDetalleFactura();
         } else {
             if(validarCampos()) {
@@ -331,6 +349,11 @@ public class FacturaController implements Initializable {
                 nuevaFactura.setCliente(isInCLiente(Integer.parseInt(clienteField.getText())));
                 this.ecenariosController.getProyectoSeleccionado().getFacturas().add(nuevaFactura);
 
+                String mensaje = "Se ha creado una nueva factura con fecha " + LocalDate.now() +
+                        " por el cliente " + ecenariosController.getClienteSesion().getNombre() + " en el proyecto " + ecenariosController.getProyectoSeleccionado().getNombre() + ".";
+
+                ecenariosController.getPrincipal().enviarConGMail(ecenariosController.getClienteSesion().getEmail(), "Nueva Factura", mensaje);
+
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Se a creado Factura");
                 alert.setHeaderText("Con exito");
@@ -415,6 +438,7 @@ public class FacturaController implements Initializable {
 
     public void volver(ActionEvent actionEvent) {
         ecenariosController.setFacturaSeleccionada(null);
+        ecenariosController.setProveedorSeleccionado(null);
         ecenariosController.cargarDashboard();
     }
 

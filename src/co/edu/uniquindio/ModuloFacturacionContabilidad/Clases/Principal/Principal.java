@@ -1,14 +1,23 @@
 package co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Principal;
 
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Contabilidad.*;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Facturacion.*;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.*;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.*;
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.*;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 public class Principal {
 
@@ -64,6 +73,44 @@ public class Principal {
         inventario.getItems().add(item6);
         inventario.getCantidades().put(item6, 3);
 
+        // Creamos los impuestos
+        Impuesto impuesto1 = new Impuesto(1, "IVA", 0.16);
+        Impuesto impuesto2 = new Impuesto(2, "Impuesto sobre ventas", 0.05);
+        Impuesto impuesto3 = new Impuesto(3, "Impuesto al consumo", 0.08);
+        Impuesto impuesto4 = new Impuesto(4, "Impuesto a las bebidas azucaradas", 0.20);
+
+        // Creamos los detalles de factura para la primera factura
+        DetalleFactura detalle1Factura1 = new DetalleFactura(1, 2, item1, impuesto1);
+        DetalleFactura detalle2Factura1 = new DetalleFactura(2, 3, item2, impuesto2);
+        Factura factura1 = new Factura(1, LocalDate.now(), 80.0, orden1, null, cliente1);
+        factura1.getDetalleFacturas().add(detalle1Factura1);
+        factura1.getDetalleFacturas().add(detalle2Factura1);
+
+        // Creamos los detalles de factura para la segunda factura
+        DetalleFactura detalle1Factura2 = new DetalleFactura(1, 1, item3, impuesto1);
+        DetalleFactura detalle2Factura2 = new DetalleFactura(2, 4, item4, impuesto3);
+        Factura factura2 = new Factura(2, LocalDate.now(), 170.0, orden2, null, cliente1);
+        factura2.getDetalleFacturas().add(detalle1Factura2);
+        factura2.getDetalleFacturas().add(detalle2Factura2);
+
+        // Creamos los detalles de factura para la tercera factura
+        DetalleFactura detalle1Factura3 = new DetalleFactura(1, 5, item5, impuesto1);
+        DetalleFactura detalle2Factura3 = new DetalleFactura(2, 2, item6, impuesto4);
+        Factura factura3 = new Factura(3, LocalDate.now(), 390.0, orden3, null, cliente1);
+        factura3.getDetalleFacturas().add(detalle1Factura3);
+        factura3.getDetalleFacturas().add(detalle2Factura3);
+
+        Transaccion transaccion1 = new Transaccion(1, LocalDate.now(), 100.0, null, null, TipoTransaccion.INGRESO, null);
+        Transaccion transaccion2 = new Transaccion(2, LocalDate.now(), 50.0, null, null, TipoTransaccion.INGRESO, null);
+        Transaccion transaccion3 = new Transaccion(3, LocalDate.now(), 75.0, null, null, TipoTransaccion.GASTO, null);
+
+        Pago pago1 = new Pago(1, LocalDate.now(), 100.0, "PAGADO", MetodoPago.TARJETA_DE_CRÉDITO, factura1, transaccion1);
+        factura1.setPago(pago1);
+        Pago pago2 = new Pago(2, LocalDate.now(), 50.0, "PAGADO", MetodoPago.TRANSFERENCIA_BANCARIA, factura2, transaccion2);
+        factura2.setPago(pago2);
+        Pago pago3 = new Pago(3, LocalDate.now(), 75.0, "PENDIENTE", MetodoPago.PAYPAL, factura3, transaccion3);
+        factura3.setPago(pago3);
+
         // Creamos 3 instancias de Proyecto, cada una asociada a un cliente y un proveedor
         Proyecto proyecto1 = new Proyecto(1, "Proyecto 1", LocalDate.now(), LocalDate.now().plusMonths(5), null, "en curso", 5000);
 
@@ -74,6 +121,16 @@ public class Principal {
         proyecto1.getOrdenDeCompras().add(orden2);
         proyecto1.getOrdenDeCompras().add(orden3);
         proyecto1.setInventario(inventario);
+        proyecto1.getFacturas().add(factura1);
+        proyecto1.getFacturas().add(factura2);
+        proyecto1.getFacturas().add(factura3);
+        proyecto1.getPagos().add(pago1);
+        proyecto1.getPagos().add(pago2);
+        proyecto1.getPagos().add(pago3);
+        proyecto1.getImpuestos().add(impuesto1);
+        proyecto1.getImpuestos().add(impuesto2);
+        proyecto1.getImpuestos().add(impuesto3);
+        proyecto1.getImpuestos().add(impuesto4);
 
         cliente1.getProyectos().add(proyecto1);
         cliente4.getProyectos().add(proyecto1);
@@ -103,6 +160,38 @@ public class Principal {
         agregarProyecto(proyecto2);
         agregarProyecto(proyecto3);
 
+    }
+
+    public static void enviarConGMail(String destinatario, String asunto, String cuerpo) {
+        //La dirección de correo de envío
+        String remitente = "cristianmasmasmas@gmail.com";
+        //La clave de aplicación obtenida según se explica en este artículo:
+        String claveemail = "djkergzcmkyrfigv";
+
+        Properties props = System.getProperties();
+        props.put("mail.smtp.host", "smtp.gmail.com");  //El servidor SMTP de Google
+        props.put("mail.smtp.user", remitente);
+        props.put("mail.smtp.clave", claveemail);    //La clave de la cuenta
+        props.put("mail.smtp.auth", "true");    //Usar autenticación mediante usuario y clave
+        props.put("mail.smtp.starttls.enable", "true"); //Para conectar de manera segura al servidor SMTP
+        props.put("mail.smtp.port", "587"); //El puerto SMTP seguro de Google
+
+        Session session = Session.getDefaultInstance(props);
+        MimeMessage message = new MimeMessage(session);
+
+        try {
+            message.setFrom(new InternetAddress(remitente));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(destinatario));   //Se podrían añadir varios de la misma manera
+            message.setSubject(asunto);
+            message.setText(cuerpo);
+            Transport transport = session.getTransport("smtp");
+            transport.connect("smtp.gmail.com", remitente, claveemail);
+            transport.sendMessage(message, message.getAllRecipients());
+            transport.close();
+        }
+        catch (MessagingException me) {
+            me.printStackTrace();   //Si se produce un error
+        }
     }
 
     /**
