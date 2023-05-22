@@ -144,6 +144,7 @@ public class DashboardController implements Initializable {
     }
 
     public void handlePago(ActionEvent actionEvent) {
+        ecenariosController.cargarPago();
     }
 
     public void handleTransaccion(ActionEvent actionEvent) {

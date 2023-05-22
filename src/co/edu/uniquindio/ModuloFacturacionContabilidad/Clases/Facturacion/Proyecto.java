@@ -7,6 +7,7 @@ import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Inventa
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Inventario.Item;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Persona.Cliente;
 import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.Notificacion;
+import co.edu.uniquindio.ModuloFacturacionContabilidad.Clases.Reporte.Transaccion;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ public class Proyecto {
     private List<Impuesto> impuestos= new ArrayList<>();
     private List<Notificacion> notificaciones = new ArrayList();
     private List<Pago> pagos = new ArrayList();
+    private List<Transaccion> transaccions = new ArrayList();
 
     public Proyecto(int id_proyecto, String nombre, LocalDate fecha_inicio, LocalDate fecha_fin_estimada,
                     LocalDate fecha_fin_real, String estado, double presupuesto) {
@@ -179,6 +181,14 @@ public class Proyecto {
 
     public void setPagos(List<Pago> pagos) {
         this.pagos = pagos;
+    }
+
+    public List<Transaccion> getTransaccions() {
+        return transaccions;
+    }
+
+    public void setTransaccions(List<Transaccion> transaccions) {
+        this.transaccions = transaccions;
     }
 
     @Override

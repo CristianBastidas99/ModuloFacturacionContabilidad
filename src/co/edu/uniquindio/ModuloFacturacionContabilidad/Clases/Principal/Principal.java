@@ -104,11 +104,11 @@ public class Principal {
         Transaccion transaccion2 = new Transaccion(2, LocalDate.now(), 50.0, null, null, TipoTransaccion.INGRESO, null);
         Transaccion transaccion3 = new Transaccion(3, LocalDate.now(), 75.0, null, null, TipoTransaccion.GASTO, null);
 
-        Pago pago1 = new Pago(1, LocalDate.now(), 100.0, "PAGADO", MetodoPago.TARJETA_DE_CRÉDITO, factura1, transaccion1);
+        Pago pago1 = new Pago(1, LocalDate.now(), 100.0, "Completado", MetodoPago.TARJETA_DE_CRÉDITO, factura1, transaccion1);
         factura1.setPago(pago1);
-        Pago pago2 = new Pago(2, LocalDate.now(), 50.0, "PAGADO", MetodoPago.TRANSFERENCIA_BANCARIA, factura2, transaccion2);
+        Pago pago2 = new Pago(2, LocalDate.now(), 50.0, "Completado", MetodoPago.TRANSFERENCIA_BANCARIA, factura2, transaccion2);
         factura2.setPago(pago2);
-        Pago pago3 = new Pago(3, LocalDate.now(), 75.0, "PENDIENTE", MetodoPago.PAYPAL, factura3, transaccion3);
+        Pago pago3 = new Pago(3, LocalDate.now(), 75.0, "Pendiente", MetodoPago.PAYPAL, factura3, transaccion3);
         factura3.setPago(pago3);
 
         // Creamos 3 instancias de Proyecto, cada una asociada a un cliente y un proveedor
@@ -131,6 +131,9 @@ public class Principal {
         proyecto1.getImpuestos().add(impuesto2);
         proyecto1.getImpuestos().add(impuesto3);
         proyecto1.getImpuestos().add(impuesto4);
+        proyecto1.getTransaccions().add(transaccion1);
+        proyecto1.getTransaccions().add(transaccion2);
+        proyecto1.getTransaccions().add(transaccion3);
 
         cliente1.getProyectos().add(proyecto1);
         cliente4.getProyectos().add(proyecto1);

@@ -22,6 +22,7 @@ public class EcenariosController {
     private OrdenDeCompra ordenDeCompraSeleccionada;
     private Item itemSeleccionado;
     private Proveedor proveedorSeleccionado;
+    private Pago pagoSeleccionado;
 
     public EcenariosController(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -190,6 +191,28 @@ public class EcenariosController {
         }
     }
 
+    public void cargarPago(){
+        try {
+
+            // Cargar el archivo FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Pago.fxml"));
+            AnchorPane root = loader.load();
+
+            // Asociar el controlador con el archivo FXML
+            PagoController controller = loader.getController();
+            controller.init(this);
+
+            // Configurar la escena
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("Pago");
+            primaryStage.show();
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }
+    }
+
     public boolean isValidUser(String email, String password) {
         Cliente cliente = principal.isValidUser(email, password);
         if(!(cliente == null)){
@@ -261,5 +284,13 @@ public class EcenariosController {
 
     public void setProveedorSeleccionado(Proveedor proveedorSeleccionado) {
         this.proveedorSeleccionado = proveedorSeleccionado;
+    }
+
+    public Pago getPagoSeleccionado() {
+        return pagoSeleccionado;
+    }
+
+    public void setPagoSeleccionado(Pago pagoSeleccionado) {
+        this.pagoSeleccionado = pagoSeleccionado;
     }
 }

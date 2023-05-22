@@ -29,6 +29,8 @@ public class Pago {
         this.transaccion = transaccion;
     }
 
+    public Pago(){}
+
     /**
      * Este método genera una probabilidad aleatoria de aprobación de un Pago,
      * con un 70% de probabilidad de aprobación y un 30% de probabilidad de rechazo.

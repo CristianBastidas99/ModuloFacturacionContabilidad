@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -349,8 +350,7 @@ public class FacturaController implements Initializable {
                 nuevaFactura.setCliente(isInCLiente(Integer.parseInt(clienteField.getText())));
                 this.ecenariosController.getProyectoSeleccionado().getFacturas().add(nuevaFactura);
 
-                String mensaje = "Se ha creado una nueva factura con fecha " + LocalDate.now() +
-                        " por el cliente " + ecenariosController.getClienteSesion().getNombre() + " en el proyecto " + ecenariosController.getProyectoSeleccionado().getNombre() + ".";
+                String mensaje =  generateInvoiceEmail(nuevaFactura, ecenariosController.getClienteSesion().getNombre(), ecenariosController.getProyectoSeleccionado().getNombre());
 
                 ecenariosController.getPrincipal().enviarConGMail(ecenariosController.getClienteSesion().getEmail(), "Nueva Factura", mensaje);
 
@@ -368,6 +368,35 @@ public class FacturaController implements Initializable {
             alert.setContentText("No puedes crear una Factura que ya existe, Tal vez quisieras editarla");
             alert.showAndWait();
         }
+    }
+
+    public static String generateInvoiceEmail(Factura factura, String nombrePersona, String proyecto) {
+        // Obtener la fecha y la hora actual
+        LocalDate fechaActual = LocalDate.now();
+        LocalTime horaActual = LocalTime.now();
+
+        // Construir el texto del correo
+        StringBuilder emailBuilder = new StringBuilder();
+        emailBuilder.append("Estimado cliente,\n\n");
+        emailBuilder.append("Adjunto encontrará los detalles de su factura:\n\n");
+        emailBuilder.append("Fecha: ").append(fechaActual).append("\n");
+        emailBuilder.append("Hora: ").append(horaActual).append("\n");
+        emailBuilder.append("Generado por: ").append(nombrePersona).append("\n");
+        emailBuilder.append("Proyecto: ").append(proyecto).append("\n\n");
+        emailBuilder.append("Detalles de la factura:\n");
+        emailBuilder.append("ID Factura: ").append(factura.getId_factura()).append("\n");
+        emailBuilder.append("Fecha Factura: ").append(factura.getFecha()).append("\n");
+        emailBuilder.append("Total: ").append(factura.getTotal()).append("\n");
+        emailBuilder.append("ID Orden de Compra: ").append(factura.getOrdenDeCompra().getId_orden_compra()).append("\n");
+        emailBuilder.append("ID Pago: ").append(factura.getPago().getId_pago()).append("\n");
+        emailBuilder.append("ID Cliente: ").append(factura.getCliente().getId_cliente()).append("\n");
+        // Agregar más detalles de la factura según sea necesario
+
+        emailBuilder.append("\nGracias por su preferencia.\n");
+        emailBuilder.append("Atentamente,\n");
+        emailBuilder.append("El equipo de la empresa\n");
+
+        return emailBuilder.toString();
     }
 
     public void editarFactura(ActionEvent actionEvent) {

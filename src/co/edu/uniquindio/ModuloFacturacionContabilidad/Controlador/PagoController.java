@@ -13,6 +13,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.function.UnaryOperator;
@@ -138,10 +140,180 @@ public class PagoController implements Initializable {
     }
 
     public void limpiarPago(ActionEvent actionEvent) {
+        // Limpiar selección y valores en la interfaz
+        ecenariosController.setPagoSeleccionado(null);
+        pagoTable.getSelectionModel().clearSelection();
+        fechaPicker.setValue(null);
+        montoField.setText("");
+        estadoComboBox.setValue(null);
+        metodoPagoComboBox.setValue(null);
+        idFacturaField.setText("");
+        idTransaccionField.setText("");
+
+        // Mostrar mensaje de confirmación
+        Alert alert2 = new Alert(Alert.AlertType.CONFIRMATION);
+        alert2.setTitle("Se a limpiado la pantalla");
+        alert2.setHeaderText("Con exito");
+        alert2.showAndWait();
     }
 
     public void crearPago(ActionEvent actionEvent) {
+        // Obtener el modelo de selección de la ListView
+        TableView.TableViewSelectionModel<Pago> selectionModel = pagoTable.getSelectionModel();
+        Pago pago = selectionModel.getSelectedItem();
+        List<Pago> listaPagoBase = this.ecenariosController.getProyectoSeleccionado().getPagos();
+
+        // Verificar si hay algún elemento seleccionado
+        if (pago == null) {
+            if(validarCampos()) {
+
+                String ultimoIdPago = this.ecenariosController.getProyectoSeleccionado().getId_proyecto() + listaPagoBase.size() + "";
+                int nuevoIdPago = Integer.parseInt(ultimoIdPago);
+
+                Pago nuevoPago = new Pago();
+                nuevoPago.setId_pago(nuevoIdPago);
+                nuevoPago.setFecha(fechaPicker.getValue());
+                nuevoPago.setMonto(Double.parseDouble(montoField.getText()));
+                nuevoPago.setEstado(estadoComboBox.getValue());
+                nuevoPago.setMetodoPago(metodoPagoComboBox.getValue());
+                nuevoPago.setFactura(isInFacturas(Integer.parseInt(idFacturaField.getText())));
+                nuevoPago.setTransaccion(isInTransacciones(Integer.parseInt(idTransaccionField.getText())));
+
+                listaPagoBase.add(nuevoPago);
+
+                String mensaje =  generarCuerpoCorreo(nuevoPago, ecenariosController.getClienteSesion().getNombre(), ecenariosController.getProyectoSeleccionado().getNombre());
+
+                ecenariosController.getPrincipal().enviarConGMail(ecenariosController.getClienteSesion().getEmail(), "Nuevo Pago", mensaje);
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Nuevo Pago");
+                alert.setHeaderText("Pago creado con éxito");
+                alert.setContentText("Se ha creado un nuevo pago.");
+                alert.showAndWait();
+
+                this.ecenariosController.cargarPago();
+            }
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error en selección de Pago");
+            alert.setHeaderText("Pago seleccionado");
+            alert.setContentText("No puedes crear un Pago que ya existe, Tal vez quisieras editarlo");
+            alert.showAndWait();
+        }
+
     }
+
+    public String generarCuerpoCorreo(Pago pago, String nombreUsuario, String nombreProyecto) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        LocalDateTime fechaCreacion = LocalDateTime.now();
+
+        String mensaje = "Estimado " + nombreUsuario + ",\n\n";
+        mensaje += "Se ha registrado un nuevo pago en el proyecto " + nombreProyecto + ".\n";
+        mensaje += "Detalles del pago:\n";
+        mensaje += "Fecha y hora de creación: " + fechaCreacion.format(formatter) + "\n";
+        mensaje += "Monto: " + pago.getMonto() + "\n";
+        mensaje += "Estado: " + pago.getEstado() + "\n";
+        mensaje += "Método de pago: " + pago.getMetodoPago() + "\n";
+        mensaje += "Factura: " + pago.getFactura().getId_factura() + "\n";
+        mensaje += "Transacción: " + pago.getTransaccion().getId_transaccion() + "\n";
+        mensaje += "\nPor favor, revise los detalles y realice las acciones correspondientes.\n";
+        mensaje += "Gracias por su atención.\n\n";
+        mensaje += "Atentamente,\n";
+        mensaje += "Equipo de Proyecto";
+
+        return mensaje;
+    }
+
+
+    private boolean validarCampos() {
+        // Verificar si el campo fecha está vacío o es anterior a la fecha actual
+        if (fechaPicker.getValue() == null || fechaPicker.getValue().isBefore(LocalDate.now())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error campo fecha");
+            alert.setHeaderText("El campo está vacío o fecha menor a hoy");
+            alert.setContentText("Debes colocar una fecha válida para continuar.");
+            alert.showAndWait();
+            return false;
+        }
+
+        // Verificar si el campo monto está vacío
+        if (montoField.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error campo monto");
+            alert.setHeaderText("El campo está vacío");
+            alert.setContentText("Debes colocar un valor para continuar.");
+            alert.showAndWait();
+            return false;
+        }
+
+        // Verificar si el ComboBox de estado está vacío
+        if (estadoComboBox.getValue() == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error campo estado");
+            alert.setHeaderText("El campo está vacío");
+            alert.setContentText("Debes seleccionar un estado válido.");
+            alert.showAndWait();
+            return false;
+        }
+
+        // Verificar si el ComboBox de método de pago está vacío
+        if (metodoPagoComboBox.getValue() == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error campo método de pago");
+            alert.setHeaderText("El campo está vacío");
+            alert.setContentText("Debes seleccionar un método de pago válido.");
+            alert.showAndWait();
+            return false;
+        }
+
+        // Verificar si el campo idFactura está vacío o la factura no existe
+        if (idFacturaField.getText().isEmpty() || isInFacturas(Integer.parseInt(idFacturaField.getText())) == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error campo id Factura");
+            alert.setHeaderText("El campo está vacío o la factura no existe");
+            alert.setContentText("Debes colocar un valor válido para continuar.");
+            alert.showAndWait();
+            return false;
+        }
+
+        // Verificar si el campo idTransaccion está vacío o la transacción no existe
+        if (idTransaccionField.getText().isEmpty() || isInTransacciones(Integer.parseInt(idTransaccionField.getText())) == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error campo id Transaccion");
+            alert.setHeaderText("El campo está vacío o la transacción no existe");
+            alert.setContentText("Debes colocar un valor válido para continuar.");
+            alert.showAndWait();
+            return false;
+        }
+
+        return true;
+    }
+
+
+    private Factura isInFacturas(int idFactura) {
+        // Obtiene la lista de facturas del proyecto seleccionado
+        List<Factura> facturas = ecenariosController.getProyectoSeleccionado().getFacturas();
+        for (Factura factura : facturas) {
+            // Verifica si el ID de la factura coincide
+            if (factura.getId_factura() == idFactura) {
+                return factura;
+            }
+        }
+        return null;
+    }
+
+    private Transaccion isInTransacciones(int idTransaccion) {
+        // Obtiene la lista de transacciones del proyecto seleccionado
+        List<Transaccion> transacciones = ecenariosController.getProyectoSeleccionado().getTransaccions();
+        for (Transaccion transaccion : transacciones) {
+            // Verifica si el ID de la transacción coincide
+            if (transaccion.getId_transaccion() == idTransaccion) {
+                return transaccion;
+            }
+        }
+        return null;
+    }
+
 
     public void editarPago(ActionEvent actionEvent) {
     }
@@ -150,6 +322,8 @@ public class PagoController implements Initializable {
     }
 
     public void volver(ActionEvent actionEvent) {
+        ecenariosController.setPagoSeleccionado(null);
+        ecenariosController.cargarDashboard();
     }
 
 
